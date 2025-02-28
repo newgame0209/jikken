@@ -11,7 +11,45 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // プロダクトカードのアニメーション初期化
     initProductCardAnimation();
+    
+    // ハンバーガーメニューの初期化
+    initHamburgerMenu();
 });
+
+// ハンバーガーメニューの初期化
+function initHamburgerMenu() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('header nav');
+    const overlay = document.querySelector('.overlay');
+    const body = document.body;
+    
+    if (hamburger && nav && overlay) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            body.classList.toggle('no-scroll');
+        });
+        
+        overlay.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+            overlay.classList.remove('active');
+            body.classList.remove('no-scroll');
+        });
+        
+        // ナビゲーションリンクがクリックされたらメニューを閉じる
+        const navLinks = nav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                body.classList.remove('no-scroll');
+            });
+        });
+    }
+}
 
 // スクロールアニメーションの初期化
 function initScrollAnimation() {

@@ -682,6 +682,14 @@ header nav ul li a.active {
 
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
+    .services-header {
+        padding: 60px 0;
+    }
+    
+    .services-header-content {
+        padding: 0 20px;
+    }
+    
     .services-header-image {
         max-width: 400px;
     }
@@ -690,8 +698,26 @@ header nav ul li a.active {
         font-size: 36px;
     }
     
+    .services-subtitle {
+        font-size: 16px;
+    }
+    
+    .services-description {
+        font-size: 15px;
+        line-height: 1.6;
+        max-width: 100%;
+    }
+    
+    .service-detail-section {
+        padding: 60px 20px;
+    }
+    
     .service-detail-header h2 {
-        font-size: 30px;
+        font-size: 28px;
+    }
+    
+    .service-catchphrase {
+        font-size: 16px;
     }
     
     .service-number {
@@ -700,18 +726,57 @@ header nav ul li a.active {
         left: 20px;
     }
     
-    .service-detail-main {
+    .service-detail-main,
+    .service-detail-main.reverse {
         flex-direction: column;
         gap: 40px;
     }
     
+    .service-detail-image {
+        width: 100%;
+        order: 1; /* 画像を常に上に表示 */
+        text-align: center;
+    }
+    
+    .service-detail-image img {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .service-detail-text {
+        width: 100%;
+        order: 2; /* テキストを常に下に表示 */
+    }
+    
+    .service-detail-text h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .service-detail-text p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+    
+    .service-feature-list li,
+    .service-flow-list li,
+    .service-target-list li {
+        font-size: 15px;
+    }
+    
     .showcase-item {
         flex-direction: column;
+        margin-bottom: 40px;
     }
     
     .showcase-image {
         width: 100%;
         height: 200px;
+    }
+    
+    .showcase-content {
+        width: 100%;
+        padding: 20px 0;
     }
     
     .example-items {
@@ -721,6 +786,7 @@ header nav ul li a.active {
     
     .example-item {
         max-width: 100%;
+        margin-bottom: 30px;
     }
     
     .service-target-list {
@@ -732,46 +798,133 @@ header nav ul li a.active {
         display: flex;
         flex-direction: column;
         gap: 15px;
+        align-items: center;
     }
     
-    .btn-view-products {
+    .btn-contact,
+    .btn-view-products,
+    .btn-register {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
         margin-right: 0;
         margin-bottom: 15px;
     }
     
     .examples-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    
+    .tool-example {
+        padding: 15px;
+    }
+    
+    .tool-example h4 {
+        font-size: 16px;
+    }
+    
+    .tool-example p {
+        font-size: 14px;
     }
     
     .contact-form-container {
         padding: 30px 20px;
     }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 10px;
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 480px) {
+    .services-header {
+        padding: 40px 0;
+    }
+    
     .services-header-image {
-        max-width: 300px;
+        max-width: 280px;
     }
     
     .services-title {
-        font-size: 32px;
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    
+    .services-subtitle {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    .services-description {
+        font-size: 14px;
+    }
+    
+    .service-detail-section {
+        padding: 40px 15px;
     }
     
     .service-detail-header h2 {
-        font-size: 26px;
+        font-size: 22px;
+    }
+    
+    .service-catchphrase {
+        font-size: 14px;
     }
     
     .service-number {
-        font-size: 60px;
+        font-size: 50px;
         opacity: 0.1;
+        top: 10px;
+        left: 10px;
+    }
+    
+    .service-detail-main {
+        gap: 30px;
+    }
+    
+    .service-detail-text h3 {
+        font-size: 18px;
+    }
+    
+    .service-detail-text p,
+    .service-feature-list li,
+    .service-flow-list li,
+    .service-target-list li {
+        font-size: 14px;
+    }
+    
+    .service-feature-list li::before,
+    .service-flow-list li::before {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .service-flow-list li {
+        padding-left: 30px;
     }
     
     .examples-grid {
         grid-template-columns: 1fr;
     }
     
-    .service-flow-list li {
-        padding-left: 35px;
+    .tool-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .btn-contact,
+    .btn-view-products,
+    .btn-register {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    .contact-form {
+        padding: 15px;
     }
 }
 

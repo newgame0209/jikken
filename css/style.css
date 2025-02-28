@@ -19,6 +19,10 @@ body {
     letter-spacing: 0.02em;
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
+
 p {
     margin-bottom: 1.5em;
     font-size: 18px;
@@ -984,5 +988,212 @@ footer nav.footer-nav ul li a:hover {
     
     .product-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ハンバーガーメニューのスタイル */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    z-index: 1000;
+}
+
+.hamburger-menu span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--main-color);
+    position: absolute;
+    transition: all 0.3s;
+}
+
+.hamburger-menu span:first-child {
+    top: 0;
+}
+
+.hamburger-menu span:nth-child(2) {
+    top: 9px;
+}
+
+.hamburger-menu span:last-child {
+    bottom: 0;
+}
+
+.hamburger-menu.active span:first-child {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:last-child {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+    .header-inner {
+        padding: 10px 20px;
+    }
+    
+    .hamburger-menu {
+        display: block;
+    }
+    
+    header nav, 
+    header .global-nav, 
+    header nav.global-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: white;
+        padding: 80px 20px 20px;
+        transition: all 0.5s;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+    
+    header nav.active, 
+    header .global-nav.active,
+    header nav.global-nav.active {
+        right: 0;
+    }
+    
+    header nav ul, 
+    header .global-nav ul,
+    header nav.global-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    header nav ul li, 
+    header .global-nav ul li,
+    header nav.global-nav ul li {
+        margin: 15px 0;
+        width: 100%;
+    }
+    
+    header nav ul li a, 
+    header .global-nav ul li a,
+    header nav.global-nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+    }
+    
+    .overlay.active {
+        display: block;
+    }
+    
+    .main-visual-content {
+        flex-direction: column-reverse;
+        padding: 20px;
+    }
+    
+    .visual-text, 
+    .visual-illustration {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .visual-text h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+    
+    .visual-illustration {
+        margin-bottom: 30px;
+    }
+    
+    .main-illustration {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    
+    .section-inner {
+        padding: 0 20px;
+    }
+    
+    .text-illustration-block {
+        flex-direction: column;
+    }
+    
+    .text-illustration-block .text,
+    .text-illustration-block .illustration {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .visual-text h1 {
+        font-size: 24px;
+    }
+    
+    .visual-description {
+        font-size: 14px;
+    }
+    
+    .section-header h2 .en {
+        font-size: 22px;
+    }
+    
+    .section-header h2 .ja {
+        font-size: 12px;
+    }
+    
+    .text-block p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    .product-card-content h3 {
+        font-size: 18px;
+    }
+    
+    .product-card-description {
+        font-size: 13px;
+    }
+    
+    .service-number {
+        font-size: 30px;
+    }
+    
+    .service-info h3 {
+        font-size: 18px;
+    }
+    
+    .footer-inner {
+        padding: 30px 20px;
+    }
+    
+    .copyright {
+        font-size: 12px;
+    }
+}
+
+/* タブレット向けの調整 */
+@media (min-width: 481px) and (max-width: 768px) {
+    .visual-text h1 {
+        font-size: 30px;
+    }
+    
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

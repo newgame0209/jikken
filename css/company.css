@@ -372,8 +372,9 @@
     }
     
     .company-header-content {
+        padding: 0 20px;
         flex-direction: column;
-        text-align: center;
+        align-items: center;
     }
     
     .company-header-image {
@@ -385,45 +386,113 @@
     }
     
     .company-title::after {
-        left: 50%;
-        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+    }
+    
+    .company-subtitle {
+        font-size: 16px;
+    }
+    
+    .company-description {
+        font-size: 15px;
+        line-height: 1.6;
+        max-width: 100%;
+    }
+    
+    .section-inner {
+        padding: 0 20px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .company-profile-container {
+        padding: 30px 20px;
+    }
+    
+    .company-profile-table {
+        font-size: 15px;
     }
     
     .company-philosophy-container {
         flex-direction: column;
+        gap: 30px;
+    }
+    
+    .philosophy-item {
+        width: 100%;
+    }
+    
+    .philosophy-title {
+        font-size: 20px;
+    }
+    
+    .philosophy-text {
+        font-size: 15px;
     }
     
     .ceo-message-container {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        gap: 30px;
     }
     
     .ceo-image {
-        flex: 0 0 100%;
+        width: 100%;
         max-width: 300px;
+        margin: 0 auto 20px;
+    }
+    
+    .ceo-message-content {
+        width: 100%;
+    }
+    
+    .ceo-name {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .ceo-message p {
+        font-size: 15px;
+        line-height: 1.6;
     }
     
     .timeline::before {
-        left: 60px;
+        left: 20px;
     }
     
     .timeline-date {
-        width: 60px;
-        font-size: 14px;
+        width: 100%;
+        padding-left: 50px;
+        text-align: left;
     }
     
     .timeline-content {
-        margin-left: 15px;
+        width: 100%;
+        padding-left: 50px;
     }
     
     .timeline-content::before {
-        left: -23px;
+        left: 16px;
+    }
+    
+    .timeline-content h3 {
+        font-size: 18px;
+    }
+    
+    .timeline-content p {
+        font-size: 15px;
     }
     
     .access-info {
         flex-direction: column;
         gap: 30px;
+    }
+    
+    .access-map,
+    .access-details {
+        width: 100%;
     }
 }
 
@@ -437,56 +506,118 @@
     }
     
     .company-title {
-        font-size: 32px;
-    }
-    
-    .company-subtitle {
-        font-size: 20px;
-    }
-    
-    .section-title {
         font-size: 28px;
     }
     
+    .company-subtitle {
+        font-size: 14px;
+    }
+    
+    .company-description {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+    
     .company-profile-container {
-        padding: 30px 20px;
+        padding: 20px 15px;
     }
     
     .company-profile-table th, 
     .company-profile-table td {
         display: block;
         width: 100%;
+        padding: 10px;
     }
     
     .company-profile-table th {
+        background-color: #f8f8f8;
         border-bottom: none;
         padding-bottom: 5px;
     }
     
     .company-profile-table td {
+        border-bottom: 1px solid #e0e0e0;
         padding-top: 5px;
     }
     
-    .timeline::before {
-        display: none;
+    .philosophy-item {
+        padding: 20px 15px;
     }
     
-    .timeline-item {
-        flex-direction: column;
+    .philosophy-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 15px;
     }
     
-    .timeline-date {
-        width: 100%;
-        text-align: left;
-        padding-right: 0;
+    .philosophy-title {
+        font-size: 18px;
         margin-bottom: 10px;
     }
     
+    .philosophy-text {
+        font-size: 14px;
+    }
+    
+    .ceo-image {
+        max-width: 200px;
+    }
+    
+    .ceo-name {
+        font-size: 18px;
+    }
+    
+    .ceo-message p {
+        font-size: 14px;
+    }
+    
+    .timeline::before {
+        left: 15px;
+    }
+    
+    .timeline-item {
+        margin-bottom: 30px;
+    }
+    
+    .timeline-date {
+        font-size: 16px;
+        padding-left: 40px;
+        margin-bottom: 5px;
+    }
+    
     .timeline-content {
-        margin-left: 0;
+        padding-left: 40px;
     }
     
     .timeline-content::before {
-        display: none;
+        left: 11px;
+        width: 8px;
+        height: 8px;
+    }
+    
+    .timeline-content h3 {
+        font-size: 16px;
+    }
+    
+    .timeline-content p {
+        font-size: 14px;
+    }
+    
+    .access-map iframe {
+        height: 250px;
+    }
+    
+    .access-address h3, 
+    .access-transport h3 {
+        font-size: 16px;
+    }
+    
+    .access-address p,
+    .access-transport li {
+        font-size: 14px;
     }
 } 
