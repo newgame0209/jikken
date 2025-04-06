@@ -39,22 +39,21 @@ function initHamburgerMenu() {
         });
         
         // ナビゲーションリンクがクリックされたときの処理を追加
-        const navLinks = nav.querySelectorAll('a[href^="#"]');
+        const navLinks = nav.querySelectorAll('a');
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
-                const href = link.getAttribute('href');
-                // トップページへの内部リンクの場合のみスムーススクロール
-                if (href.startsWith('#')) {
+                // メニューを閉じる
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                body.classList.remove('no-scroll');
+                
+                // ハッシュリンクの場合のみスムーススクロール処理
+                if (link.getAttribute('href').startsWith('#')) {
                     e.preventDefault();
                     
-                    // メニューを閉じる
-                    hamburger.classList.remove('active');
-                    nav.classList.remove('active');
-                    overlay.classList.remove('active');
-                    body.classList.remove('no-scroll');
-                    
                     // スクロール先の要素を取得
-                    const targetId = href;
+                    const targetId = link.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
                     
                     if (targetElement) {
@@ -69,7 +68,6 @@ function initHamburgerMenu() {
                         });
                     }
                 }
-                // 外部リンクや別ページへのリンクの場合はデフォルトの動作
             });
         });
     }
@@ -167,14 +165,15 @@ function initHeaderScroll() {
     });
 }
 
-// スムーススクロール (ハンバーガーメニュー以外のリンク用)
+// スムーススクロール
 function initSmoothScroll() {
-    // ヘッダーの外のセクションリンクをすべて取得（aタグのhref属性が#で始まり、navの中のリンクでないもの）
-    document.querySelectorAll('a[href^="#"]:not([href="#"]):not(header nav a)').forEach(anchor => {
+    // ヘッダーの外のセクションリンクをすべて取得（aタグのhref属性が#で始まり、topでないもの）
+    document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             
             const targetId = this.getAttribute('href');
+            
             const targetElement = document.querySelector(targetId);
             if (!targetElement) return;
             
