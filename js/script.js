@@ -50,34 +50,53 @@ function initHamburgerMenu() {
     // 各ナビゲーションリンクにイベントリスナーを追加
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            // 外部リンクや別ページへのリンクの場合はデフォルト動作
+            // リンクのhref属性を取得
             const href = link.getAttribute('href');
-            const isExternal = href.startsWith('http') || !href.startsWith('#');
-            const isCurrentPageLink = href.startsWith('#') && window.location.pathname.endsWith('index.html'); // TOPページ内リンクかチェック
-
-            if (nav.classList.contains('active')) {
-                 // 同じページ内のアンカーリンクでなければ、ページ遷移前にメニューを閉じる
-                 // (スムーススクロールが別途処理するため、ここでは閉じない)
-                 if (!isCurrentPageLink) { 
-                      toggleMenu();
-                 }
-            }
             
-             // スムーススクロールのための処理は initSmoothScroll で行うため、ここでは何もしない
-             // ただし、メニューはクリックされたら閉じる必要がある場合がある。
-             // 特に別ページへのリンクの場合は、遷移前に閉じておくのが自然。
-             if (isExternal || !href.startsWith('#')) {
-                 // toggleMenu() はページ遷移後に実行されるので、ここでは不要かもしれないが、念のため。
-                 // メニューが開いている場合のみ閉じる
-                 if (nav.classList.contains('active')) {
-                     toggleMenu();
-                 }
-             } else if (isCurrentPageLink) {
-                // TOPページ内リンクの場合、スムーススクロール後に閉じるように initSmoothScroll 側で対応する
-                // ここで閉じるとスクロールがおかしくなる可能性があるため、何もしない
-                // ただし、スムーススクロール対象外の#リンクの場合は閉じるべきかもしれない
-                // 一旦、initSmoothScrollに任せる
-             }
+            // 外部リンクかどうかチェック
+            const isExternal = href.startsWith('http') || !href.includes('#');
+            
+            // 現在のページのパス名を取得
+            const currentPath = window.location.pathname;
+            
+            // 同じページ内のアンカーリンクかチェック
+            // 例: href="#about" または href="index.html#about" で現在index.htmlにいる場合
+            const isCurrentPageAnchor = 
+                (href.startsWith('#')) || 
+                (currentPath.includes(href.split('#')[0]) && href.includes('#'));
+            
+            // メニューが開いている場合は閉じる
+            if (nav.classList.contains('active')) {
+                // 同じページ内のアンカーリンクならページ遷移前にメニューを閉じる
+                // (リンククリックでは自動的に閉じないため)
+                toggleMenu();
+                
+                // 同じページ内のアンカーリンクの場合は、スムーススクロールを自前で実装
+                if (isCurrentPageAnchor) {
+                    e.preventDefault(); // デフォルトのリンク動作をキャンセル
+                    
+                    // ターゲット要素のIDを取得
+                    const targetId = href.includes('#') ? href.split('#')[1] : href.substring(1);
+                    
+                    // ターゲット要素を検索
+                    const targetElement = document.getElementById(targetId);
+                    
+                    // ターゲット要素が存在する場合はスクロール
+                    if (targetElement) {
+                        // ヘッダーの高さを取得
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        
+                        // ターゲット要素の位置を計算
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        // スムーススクロール
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            }
         });
     });
 }

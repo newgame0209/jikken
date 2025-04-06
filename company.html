@@ -309,3 +309,71 @@
     <script src="js/lazy-load.js"></script>
 </body>
 </html>
+
+<style>
+/* スマホ表示での沿革エリア最適化 */
+@media (max-width: 768px) {
+    .company-history-section .timeline {
+        padding-left: 25px; /* 左側のスペースを増やす */
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .company-history-section .timeline-item {
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 10px;
+        border-left: 2px solid #e0e0e0;
+        padding-left: 20px;
+    }
+    
+    .company-history-section .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -8px;
+        top: 0;
+        width: 14px;
+        height: 14px;
+        background-color: #004C4F;
+        border-radius: 50%;
+    }
+    
+    .company-history-section .timeline-date {
+        font-weight: 600;
+        color: #004C4F;
+        margin-bottom: 5px;
+        font-size: 16px;
+    }
+    
+    .company-history-section .timeline-content h3 {
+        font-size: 17px;
+        margin-bottom: 5px;
+        line-height: 1.4;
+    }
+    
+    .company-history-section .timeline-content p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0;
+    }
+}
+
+/* タブレット表示での最適化 */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .company-history-section .timeline {
+        padding-left: 30px;
+    }
+    
+    .company-history-section .timeline-item {
+        margin-bottom: 30px;
+    }
+    
+    .company-history-section .timeline-date {
+        font-size: 18px;
+    }
+    
+    .company-history-section .timeline-content h3 {
+        font-size: 18px;
+    }
+}
+</style>

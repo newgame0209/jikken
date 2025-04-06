@@ -11,6 +11,63 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* スマホ表示で左右スクロールを防止するための追加スタイル */
+        @media (max-width: 768px) {
+            html, body {
+                overflow-x: hidden;
+                width: 100%;
+                position: relative;
+            }
+            
+            .products-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 20px;
+                width: 100%;
+                overflow: hidden;
+            }
+            
+            .product-card-content {
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            .feature-tag {
+                display: inline-block;
+                margin-bottom: 5px;
+            }
+            
+            .product-detail-main {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .product-detail-image, 
+            .product-detail-text {
+                width: 100%;
+            }
+            
+            .gallery-images, 
+            .gallery-videos {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .gallery-images img, 
+            .video-container {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            table {
+                width: 100%;
+                display: block;
+                overflow-x: auto;
+                white-space: normal;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- ヘッダー -->
