@@ -852,6 +852,8 @@ footer nav.footer-nav ul li a:hover {
     img {
         max-width: 100%;
         height: auto;
+        display: block;
+        margin: 0 auto;
     }
     
     /* セクション間の余白調整 */
@@ -1070,6 +1072,63 @@ footer nav.footer-nav ul li a:hover {
     nav.global-nav ul li a .nav-ja {
         font-size: 12px;
     }
+    
+    /* 追加：コンテンツの表示を改善 */
+    .product-card, 
+    .service-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .product-card-image img, 
+    .service-card-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    
+    .product-detail-section .product-detail-content {
+        flex-direction: column;
+    }
+    
+    .product-detail-section .product-detail-image,
+    .product-detail-section .product-detail-info {
+        width: 100%;
+    }
+    
+    .company-profile-table {
+        width: 100%;
+    }
+    
+    .company-profile-table th,
+    .company-profile-table td {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    .company-profile-table th {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+    }
+    
+    .timeline-date,
+    .timeline-content {
+        width: 100%;
+    }
+    
+    .contact-form-group {
+        margin-bottom: 20px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1077,6 +1136,8 @@ footer nav.footer-nav ul li a:hover {
     img {
         max-width: 100%;
         height: auto;
+        display: block;
+        margin: 0 auto;
     }
     
     /* セクション間の余白調整 */
@@ -1199,112 +1260,181 @@ footer nav.footer-nav ul li a:hover {
         margin-bottom: 15px;
     }
     
-    .text-block p br {
-        display: none;
+    /* 追加：スマホ表示の最適化 */
+    .product-card, 
+    .service-card {
+        width: 100%;
+        margin-bottom: 20px;
     }
     
-    /* メンバーカードの調整 */
-    .members-list {
-        gap: 15px;
+    .product-card-image img, 
+    .service-card-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
     }
     
-    .member-card {
-        width: calc(50% - 8px);
+    .product-card-content,
+    .service-card-content {
+        padding: 15px;
+    }
+    
+    .product-card-description,
+    .service-card-description {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    .product-features,
+    .service-features {
+        flex-wrap: wrap;
+    }
+    
+    .feature-tag {
+        margin: 0 5px 5px 0;
+        font-size: 11px;
+    }
+    
+    .product-detail-section .product-detail-content {
+        padding: 20px;
+    }
+    
+    .product-detail-header h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+    
+    .product-detail-catchphrase {
+        font-size: 14px;
         margin-bottom: 15px;
     }
     
-    .member-info h3 {
+    .product-detail-description p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 12px;
+    }
+    
+    .product-detail-features {
+        margin-top: 15px;
+    }
+    
+    .product-detail-features .feature-tag {
+        margin: 0 5px 5px 0;
+        font-size: 11px;
+    }
+    
+    .company-profile-table {
+        width: 100%;
+    }
+    
+    .company-profile-table th,
+    .company-profile-table td {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    .company-profile-table th {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    
+    .timeline-date {
+        width: 100%;
+        margin-bottom: 5px;
+        font-size: 16px;
+    }
+    
+    .timeline-content {
+        width: 100%;
+        padding-left: 0;
+    }
+    
+    .timeline-content h3 {
         font-size: 16px;
         margin-bottom: 5px;
     }
     
-    .member-info p {
-        font-size: 12px;
-        margin-bottom: 0;
-    }
-    
-    /* プロダクトカードの調整 */
-    .product-card-content {
-        padding: 15px;
-    }
-    
-    .product-card-content h3 {
-        font-size: 18px;
-        margin-bottom: 5px;
-    }
-    
-    .product-card-catchphrase {
+    .timeline-content p {
         font-size: 14px;
-        margin-bottom: 8px;
     }
     
-    .product-card-description {
-        font-size: 13px;
-        line-height: 1.5;
-        margin-bottom: 10px;
+    .contact-form-group {
+        margin-bottom: 15px;
     }
     
-    .product-features {
-        margin-bottom: 12px;
-    }
-    
-    .feature-tag {
-        font-size: 10px;
-        padding: 3px 8px;
-        margin-right: 5px;
+    .contact-form-group label {
+        font-size: 14px;
         margin-bottom: 5px;
     }
     
-    /* サービス情報の調整 */
-    .service-number {
-        font-size: 28px;
-        margin-bottom: 8px;
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px;
+        font-size: 14px;
     }
     
-    .service-info h3 {
-        font-size: 18px;
-        margin-bottom: 8px;
+    .contact-form button {
+        padding: 12px 24px;
+        font-size: 15px;
+    }
+    
+    /* モバイルでの表示崩れを防ぐ */
+    .section-description {
+        width: 100%;
+        text-align: left;
+    }
+    
+    /* テーブルのレスポンシブ対応 */
+    table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+    
+    /* フォームのレスポンシブ対応 */
+    form {
+        width: 100%;
+    }
+    
+    /* コンテナの余白調整 */
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* グリッドレイアウトの調整 */
+    .grid {
+        grid-template-columns: 1fr;
     }
     
     /* フッターの調整 */
+    footer {
+        padding: 30px 0;
+    }
+    
     .footer-inner {
-        padding: 25px 15px;
-    }
-    
-    footer nav ul,
-    footer .footer-nav ul,
-    footer nav.footer-nav ul {
-        margin-bottom: 20px;
-    }
-    
-    footer nav ul li,
-    footer .footer-nav ul li,
-    footer nav.footer-nav ul li {
-        margin: 0 8px 8px;
-    }
-    
-    footer nav ul li a,
-    footer .footer-nav ul li a,
-    footer nav.footer-nav ul li a {
-        font-size: 13px;
+        padding: 0 15px;
     }
     
     .copyright {
         font-size: 11px;
     }
-    
-    /* スクロールダウンの調整 */
-    .scroll-down {
-        bottom: 15px;
+}
+
+/* タブレット向けの調整 */
+@media (min-width: 481px) and (max-width: 768px) {
+    .visual-text h1 {
+        font-size: 30px;
     }
     
-    .scroll-down span {
-        font-size: 12px;
-    }
-    
-    .scroll-down svg {
-        width: 25px;
-        height: 25px;
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -1349,62 +1479,4 @@ footer nav.footer-nav ul li a:hover {
 
 .hamburger-menu.active span:last-child {
     transform: translateY(-9px) rotate(-45deg);
-}
-
-@media (max-width: 480px) {
-    .visual-text h1 {
-        font-size: 24px;
-    }
-    
-    .visual-description {
-        font-size: 14px;
-    }
-    
-    .section-header h2 .en {
-        font-size: 22px;
-    }
-    
-    .section-header h2 .ja {
-        font-size: 12px;
-    }
-    
-    .text-block p {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-    
-    .product-card-content h3 {
-        font-size: 18px;
-    }
-    
-    .product-card-description {
-        font-size: 13px;
-    }
-    
-    .service-number {
-        font-size: 30px;
-    }
-    
-    .service-info h3 {
-        font-size: 18px;
-    }
-    
-    .footer-inner {
-        padding: 30px 20px;
-    }
-    
-    .copyright {
-        font-size: 12px;
-    }
-}
-
-/* タブレット向けの調整 */
-@media (min-width: 481px) and (max-width: 768px) {
-    .visual-text h1 {
-        font-size: 30px;
-    }
-    
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }

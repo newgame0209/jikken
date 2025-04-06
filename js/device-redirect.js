@@ -1,6 +1,12 @@
 // デバイス判定とリダイレクト用のスクリプト
 
 (function() {
+    // リダイレクト機能を無効化
+    // PC版の内容をレスポンシブデザインで表示するため、
+    // モバイルサイトへのリダイレクトは行わない
+    
+    // 以下のコードはコメントアウト
+    /*
     // モバイルデバイスかどうかを判定
     function isMobileDevice() {
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
@@ -27,4 +33,7 @@
             window.location.href = currentPath.replace('/mobile/', '/');
         }
     }
-})(); 
+    */
+    
+    console.log('レスポンシブデザインモードで表示中');
+})();
