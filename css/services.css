@@ -1,0 +1,978 @@
+/* Servicesページ用のスタイル */
+
+/* ヘッダー部分のアクティブ状態 */
+header nav ul li a.active {
+    color: var(--main-color);
+}
+
+/* メインタイトル部分 */
+.services-header {
+    padding: 120px 0 60px;
+    background-color: #f8f9ff;
+}
+
+.services-header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.services-header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.services-title-container {
+    max-width: 700px;
+    margin-top: 40px;
+}
+
+.services-header-image {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    position: relative;
+    padding: 20px;
+}
+
+.services-header-image::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(0, 102, 204, 0.05);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.services-header-image::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 250px;
+    height: 250px;
+    background-color: rgba(13, 110, 110, 0.03);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.services-header-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+    transition: transform 0.5s ease;
+}
+
+.services-header-image:hover img {
+    transform: translateY(-5px);
+}
+
+.services-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.services-subtitle {
+    font-size: 18px;
+    color: var(--dark-gray);
+    margin-bottom: 30px;
+}
+
+.services-description {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* サービス詳細セクション */
+.service-detail-section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.primary-section {
+    background-color: white;
+}
+
+.secondary-section {
+    background-color: #f8f9ff;
+}
+
+.tertiary-section {
+    background-color: white;
+}
+
+.service-number {
+    font-size: 120px;
+    font-weight: 700;
+    color: rgba(0, 76, 79, 0.05);
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    line-height: 1;
+    z-index: 0;
+}
+
+.service-detail-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.service-detail-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.service-detail-header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.service-catchphrase {
+    font-size: 18px;
+    color: var(--main-color);
+    font-weight: 500;
+}
+
+.service-detail-main {
+    display: flex;
+    gap: 60px;
+    margin-bottom: 60px;
+    align-items: center;
+}
+
+/* 画像とテキストの順番を逆にするスタイル */
+.service-detail-main.reverse {
+    flex-direction: row-reverse;
+}
+
+.service-detail-image {
+    flex: 1.3;
+    text-align: center;
+}
+
+.service-detail-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-detail-main:hover .service-detail-image img {
+    transform: translateY(-5px);
+}
+
+.service-detail-text {
+    flex: 1;
+}
+
+.service-detail-text h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.service-detail-text h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 20px;
+    background-color: var(--main-color);
+    border-radius: 5px;
+}
+
+.service-detail-text p {
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+/* サービス特徴リスト */
+.service-feature-list, .service-flow-list, .service-target-list {
+    list-style-type: none;
+    margin-bottom: 30px;
+}
+
+.service-feature-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.service-feature-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* フロー */
+.service-flow-list li {
+    position: relative;
+    margin-bottom: 25px;
+    padding-left: 40px;
+    counter-increment: flow-counter;
+}
+
+.service-flow-list li::before {
+    content: counter(flow-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.flow-title {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* ターゲットリスト */
+.service-target-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.service-target-list li {
+    background-color: #f5f5f5;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    border-left: 3px solid var(--main-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* アクションボタン */
+.service-action {
+    margin-top: 40px;
+}
+
+.btn-contact {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.btn-contact:hover {
+    background-color: #005c5c;
+}
+
+.btn-view-products {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: white;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-right: 15px;
+}
+
+.btn-view-products:hover {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.btn-register {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ff6b6b;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.btn-register:hover {
+    background-color: #ff5252;
+}
+
+/* サービス事例 */
+.service-examples {
+    margin-top: 80px;
+}
+
+.service-examples h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.example-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.example-item {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 450px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.example-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.example-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.example-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.example-item:hover .example-image img {
+    transform: scale(1.05);
+}
+
+.example-content {
+    padding: 25px;
+}
+
+.example-content h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.example-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--dark-gray);
+}
+
+/* プロダクトショーケース */
+.product-showcase {
+    margin-top: 80px;
+}
+
+.product-showcase h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.showcase-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.showcase-item {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 480px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.showcase-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.showcase-image {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.showcase-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.showcase-item:hover .showcase-image img {
+    transform: scale(1.05);
+}
+
+.showcase-content {
+    padding: 20px;
+    flex-grow: 1;
+    position: relative;
+}
+
+.showcase-content h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.showcase-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    margin-bottom: 15px;
+}
+
+.btn-detail {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: white;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-detail:hover {
+    background-color: rgba(0, 76, 79, 0.05);
+}
+
+.coming-soon-tag {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: var(--main-color);
+    color: white;
+    font-size: 12px;
+    border-radius: 20px;
+    margin-top: 5px;
+}
+
+/* ツール事例グリッド */
+.tool-examples {
+    margin-top: 80px;
+}
+
+.tool-examples h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.tool-example {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px 25px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.tool-example:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.tool-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    background-color: rgba(0, 102, 204, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.tool-example:hover .tool-icon {
+    background-color: rgba(0, 102, 204, 0.2);
+}
+
+.tool-icon i {
+    font-size: 40px;
+    color: #0066cc;
+}
+
+.tool-example h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.tool-example p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--dark-gray);
+}
+
+/* お問い合わせフォーム */
+.contact-section {
+    padding: 100px 0;
+    background-color: #f8f9ff;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.contact-header p {
+    font-size: 16px;
+    color: var(--dark-gray);
+}
+
+.contact-form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.required {
+    color: #ff6b6b;
+    margin-left: 3px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--main-color);
+    outline: none;
+}
+
+.form-privacy {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.form-privacy input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.privacy-link {
+    color: var(--main-color);
+    text-decoration: underline;
+}
+
+.form-submit {
+    margin-top: 10px;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #005c5c;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .services-header {
+        padding: 60px 0;
+    }
+    
+    .services-header-content {
+        padding: 0 20px;
+    }
+    
+    .services-header-image {
+        max-width: 400px;
+    }
+    
+    .services-title {
+        font-size: 36px;
+    }
+    
+    .services-subtitle {
+        font-size: 16px;
+    }
+    
+    .services-description {
+        font-size: 15px;
+        line-height: 1.6;
+        max-width: 100%;
+    }
+    
+    .service-detail-section {
+        padding: 60px 20px;
+    }
+    
+    .service-detail-header h2 {
+        font-size: 28px;
+    }
+    
+    .service-catchphrase {
+        font-size: 16px;
+    }
+    
+    .service-number {
+        font-size: 80px;
+        top: 20px;
+        left: 20px;
+    }
+    
+    .service-detail-main,
+    .service-detail-main.reverse {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .service-detail-image {
+        width: 100%;
+        order: 1; /* 画像を常に上に表示 */
+        text-align: center;
+    }
+    
+    .service-detail-image img {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .service-detail-text {
+        width: 100%;
+        order: 2; /* テキストを常に下に表示 */
+    }
+    
+    .service-detail-text h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .service-detail-text p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+    
+    .service-feature-list li,
+    .service-flow-list li,
+    .service-target-list li {
+        font-size: 15px;
+    }
+    
+    .showcase-item {
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
+    
+    .showcase-image {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .showcase-content {
+        width: 100%;
+        padding: 20px 0;
+    }
+    
+    .example-items {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .example-item {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .service-target-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .service-action {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .btn-contact,
+    .btn-view-products,
+    .btn-register {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .examples-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    
+    .tool-example {
+        padding: 15px;
+    }
+    
+    .tool-example h4 {
+        font-size: 16px;
+    }
+    
+    .tool-example p {
+        font-size: 14px;
+    }
+    
+    .contact-form-container {
+        padding: 30px 20px;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-header {
+        padding: 40px 0;
+    }
+    
+    .services-header-image {
+        max-width: 280px;
+    }
+    
+    .services-title {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    
+    .services-subtitle {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    .services-description {
+        font-size: 14px;
+    }
+    
+    .service-detail-section {
+        padding: 40px 15px;
+    }
+    
+    .service-detail-header h2 {
+        font-size: 22px;
+    }
+    
+    .service-catchphrase {
+        font-size: 14px;
+    }
+    
+    .service-number {
+        font-size: 50px;
+        opacity: 0.1;
+        top: 10px;
+        left: 10px;
+    }
+    
+    .service-detail-main {
+        gap: 30px;
+    }
+    
+    .service-detail-text h3 {
+        font-size: 18px;
+    }
+    
+    .service-detail-text p,
+    .service-feature-list li,
+    .service-flow-list li,
+    .service-target-list li {
+        font-size: 14px;
+    }
+    
+    .service-feature-list li::before,
+    .service-flow-list li::before {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .service-flow-list li {
+        padding-left: 30px;
+    }
+    
+    .examples-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tool-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .btn-contact,
+    .btn-view-products,
+    .btn-register {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    .contact-form {
+        padding: 15px;
+    }
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    .service-detail-main,
+    .service-detail-main.reverse {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .service-detail-image {
+        width: 100%;
+        order: 1; /* 画像を常に上に表示 */
+    }
+    
+    .service-detail-text {
+        width: 100%;
+        order: 2; /* テキストを常に下に表示 */
+    }
+    
+    .service-number {
+        font-size: 80px;
+        top: 20px;
+        left: 20px;
+    }
+    
+    .service-detail-header h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-detail-main {
+        gap: 30px;
+    }
+    
+    .service-number {
+        font-size: 60px;
+        top: 10px;
+        left: 10px;
+    }
+    
+    .service-detail-header h2 {
+        font-size: 24px;
+    }
+    
+    .service-catchphrase {
+        font-size: 16px;
+    }
+} 
