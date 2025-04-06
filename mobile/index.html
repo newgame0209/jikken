@@ -12,6 +12,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- ローディングアニメーション -->
+    <div class="loading">
+        <div class="loading-content">
+            <h1 class="loading-title">JIKKEN Inc.</h1>
+            <div class="loading-line"></div>
+            <p class="loading-subtitle">AIの力で暮らしをアップデートする</p>
+        </div>
+    </div>
+
     <!-- ヘッダー -->
     <header>
         <div class="header-inner">
@@ -31,31 +40,31 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="about.html">
+                        <a href="#about">
                             <span class="en">About</span>
                             <span class="ja">私たちについて</span>
                         </a>
                     </li>
                     <li>
-                        <a href="products.html">
+                        <a href="#product">
                             <span class="en">AI Product</span>
                             <span class="ja">プロダクト</span>
                         </a>
                     </li>
                     <li>
-                        <a href="services.html">
+                        <a href="#services">
                             <span class="en">Services</span>
                             <span class="ja">サービス案内</span>
                         </a>
                     </li>
                     <li>
-                        <a href="company.html">
+                        <a href="#company">
                             <span class="en">Company Info</span>
                             <span class="ja">会社情報</span>
                         </a>
                     </li>
                     <li>
-                        <a href="contact.html">
+                        <a href="#contact">
                             <span class="en">Contact</span>
                             <span class="ja">お問い合わせ</span>
                         </a>
@@ -64,155 +73,198 @@
             </nav>
         </div>
     </header>
+    <!-- オーバーレイ -->
+    <div class="overlay"></div>
 
     <div class="main-content">
         <!-- メインビジュアル -->
         <section class="main-visual">
             <div class="main-visual-content">
                 <div class="visual-text">
-                    <h1>暮らしをAIの力で<br>ちょっとアップデートする。</h1>
-                </div>
-                <div class="visual-description">
-                    <p>私たちは生成AIを使って、一人一人に寄り添った<br>ちょっと便利に、ちょっと幸せを感じられる<br>そんなサービスを実験的に開発しています。</p>
-                </div>
-                <div class="action-button">
-                    <a href="products.html" class="btn">プロダクトを見る</a>
+                    <h1>
+                        <span class="main-title-line1">暮らしを</span>
+                        <span class="main-title-line2">AIの力で</span>
+                        <span class="main-title-line3">ちょっとアップデートする。</span>
+                    </h1>
+                    <p class="visual-description">私たちは生成AIを使って、一人一人に寄り添った<br>
+                        ちょっと便利になる、ちょっと幸せを感じられる<br>
+                        そんなサービスを実験的に開発しているユニットです。</p>
+                    <div class="action-button">
+                        <a href="#about" class="btn-start">さあ実験をはじめよう。</a>
+                    </div>
                 </div>
                 <div class="visual-illustration">
-                    <img src="../images/main-illustration.png" alt="メインイラスト">
+                    <img src="../images/cach1.png" alt="AIイラスト" class="main-illustration">
                 </div>
-            </div>
-            <div class="scroll-down">
-                <span>Scroll</span>
-                <svg width="20" height="30" viewBox="0 0 20 30">
-                    <path d="M10 5 L10 25 L5 20 M10 25 L15 20" stroke="#333" fill="none" stroke-width="1" />
-                </svg>
-            </div>
-        </section>
-
-        <!-- About セクション -->
-        <section class="section" id="about">
-            <div class="section-inner">
-                <div class="section-header">
-                    <h2 class="section-title">About</h2>
-                </div>
-                <div class="text-block">
-                    <p>私たちJIKKENは、AIの力を使って、人々の日常をちょっとだけ便利に、ちょっとだけ豊かにするプロダクト開発を行っています。"JIKKEN"（実験）という名前の通り、私たちは様々なアイデアや可能性を実験的に形にし、新しい価値の創造に挑戦し続けています。</p>
-                </div>
-                <div class="action-button">
-                    <a href="about.html" class="btn">詳しく見る</a>
+                <div class="scroll-down">
+                    <span>Scroll Down</span>
+                    <svg width="30" height="30" viewBox="0 0 30 30">
+                        <path d="M15 5 L15 25 M7 17 L15 25 L23 17" fill="none" stroke="#000" stroke-width="2"/>
+                    </svg>
                 </div>
             </div>
         </section>
 
-        <!-- メンバー セクション -->
-        <section class="section" id="members">
+        <!-- About -->
+        <section id="about" class="about section">
             <div class="section-inner">
                 <div class="section-header">
-                    <h2 class="section-title">Team Members</h2>
+                    <h2>
+                        <span class="en">About</span>
+                        <span class="ja">私たちについて</span>
+                    </h2>
                 </div>
-                <div class="text-block">
-                    <p>私たちは2人+AIエンジニアからなる小さな開発チームです。毎月サービスをテスト的に無料リリースしています。</p>
-                </div>
-                <div class="members-list">
-                    <div class="member-card">
-                        <div class="member-photo">
-                            <img src="../images/member-1.jpg" alt="Lisa Johnson" class="member-img">
+                <div class="section-content">
+                    <div class="text-illustration-block">
+                        <div class="illustration">
+                            <img src="../images/cach2.png" alt="チームイラスト" class="about-illustration">
                         </div>
-                        <div class="member-info">
-                            <h3>Lisa Johnson</h3>
-                            <p>AI Engineer</p>
-                        </div>
-                    </div>
-                    <div class="member-card">
-                        <div class="member-photo">
-                            <img src="../images/member-2.jpg" alt="Kevin Chen" class="member-img">
-                        </div>
-                        <div class="member-info">
-                            <h3>Kevin Chen</h3>
-                            <p>Product Designer</p>
+                        <div class="text">
+                            <p>私たちは生成AIを使って、一人一人に寄り添ったちょっと便利になる、ちょっと幸せを感じられるサービスを実験的に開発していて、日々の暮らしや生活を便利にできるようなサービスを提供していきたいと思っています。</p>
+                            <p>生成AIの技術革新によって凄まじい勢いでテクノロジーが日々進化しています。私たちはそんなAIの技術を使って身の回りにいる人をちょこっと幸せにできるようなサービスを開発しています。</p>
+                            <p>たった2人の小さなユニットですが、日々の暮らしや生活を便利にできるようなサービスを提供していきたいと思っています。</p>
+                            <div class="about-actions">
+                                <a href="about.html" class="btn-product">詳細を見る</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- プロダクト セクション -->
-        <section class="section" id="products">
+        <!-- Members -->
+        <section id="members" class="members section">
             <div class="section-inner">
                 <div class="section-header">
-                    <h2 class="section-title">AI Products</h2>
+                    <h2>
+                        <span class="en">Our Team</span>
+                    </h2>
                 </div>
-                <div class="text-block">
-                    <p>私たちが開発している生成AIを使ったプロダクト</p>
-                    <p>毎月2本ペースで暮らしを少し豊かにできるような生成AIサービスを開発・リリースしています。</p>
-                </div>
-                <div class="product-list">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="../images/product-1.jpg" alt="AI Writing Assistant">
+                <div class="section-content">
+                    <div class="text-block">
+                        <p>私たちは2人からなる小さな開発チームです。毎月サービスをテスト的に無料リリースしています。</p>
+                    </div>
+                    <div class="members-list">
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <img src="../images/placeholder.png" alt="Keita Nakamura" class="member-img">
+                            </div>
+                            <div class="member-info">
+                                <h3>Keita Nakamura</h3>
+                                <p>CEO & Founder</p>
+                            </div>
                         </div>
-                        <div class="product-content">
-                            <h3>AI Writing Assistant</h3>
-                            <p>あなたの文章を分析し、より魅力的な表現に変換します。</p>
+                        <div class="member-card">
+                            <div class="member-photo">
+                                <img src="../images/placeholder2.png" alt="Yu Mishima" class="member-img">
+                            </div>
+                            <div class="member-info">
+                                <h3>Yu Mishima</h3>
+                                <p>CTO</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="../images/product-2.jpg" alt="AI Image Generator">
-                        </div>
-                        <div class="product-content">
-                            <h3>AI Image Generator</h3>
-                            <p>あなたのアイデアを美しい画像として具現化します。</p>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="../images/product-3.jpg" alt="AI Business Analyzer">
-                        </div>
-                        <div class="product-content">
-                            <h3>AI Business Analyzer</h3>
-                            <p>ビジネスデータを分析し、重要な洞察を提供します。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="action-button">
-                    <a href="products.html" class="btn">もっと見る</a>
                 </div>
             </div>
         </section>
 
-        <!-- サービス セクション -->
-        <section class="section" id="services">
+        <!-- AI Product -->
+        <section id="product" class="product section">
             <div class="section-inner">
                 <div class="section-header">
-                    <h2 class="section-title">Services</h2>
+                    <h2>
+                        <span class="en">AI Product</span>
+                        <span class="ja">プロダクト</span>
+                    </h2>
                 </div>
-                <div class="service-list">
-                    <div class="service-item">
-                        <div class="service-number">01</div>
-                        <div class="service-content">
-                            <h3>MVP開発</h3>
-                            <p>アイデアを素早く形にするMVP開発サービス</p>
+                <div class="section-content">
+                    <div class="text-block">
+                        <p>私たちが開発している生成AIを使ったプロダクト</p>
+                        <p>毎月2本ペースで暮らしを少し豊かにできるような生成AIサービスを開発・リリースしています。</p>
+                        <div class="action-button">
+                            <a href="products.html" class="btn-product">すべてのプロダクトを見る</a>
                         </div>
                     </div>
-                    <div class="service-item">
-                        <div class="service-number">02</div>
-                        <div class="service-content">
-                            <h3>AI製品開発</h3>
-                            <p>生成AIを活用した製品開発支援</p>
+                    <div class="product-grid">
+                        <!-- プロダクトカード1 -->
+                        <div class="product-card">
+                            <div class="product-card-image">
+                                <img src="../images/note.jpg" alt="しゃべるノート">
+                                <div class="product-tag">New</div>
+                            </div>
+                            <div class="product-card-content">
+                                <h3>しゃべるノート</h3>
+                                <p class="product-card-catchphrase">書いて覚える。聞いて定着させる。</p>
+                                <p class="product-card-description">手書きで書いた文字やテキストで入力した文字をAIが音声で変換してくれるサービス。</p>
+                                <div class="product-card-actions">
+                                    <a href="products.html" class="btn-product">詳細を見る</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="service-item">
-                        <div class="service-number">03</div>
-                        <div class="service-content">
-                            <h3>フリーランス向けツール</h3>
-                            <p>業務効率化のためのAIツール開発</p>
+                        
+                        <!-- プロダクトカード2 -->
+                        <div class="product-card">
+                            <div class="product-card-image">
+                                <img src="../images/aifx.jpg" alt="AI学習アシスタント">
+                                <div class="product-tag">Coming Soon</div>
+                            </div>
+                            <div class="product-card-content">
+                                <h3>AI学習アシスタント</h3>
+                                <p class="product-card-catchphrase">パーソナライズな学習カリキュラムを作成</p>
+                                <p class="product-card-description">専門資格の勉強やプログラミングの勉強など自分が学びたい内容をAIがサポートしてくれます。</p>
+                                <div class="product-card-actions">
+                                    <a href="products.html#ai-assistant-detail" class="btn-product btn-disabled">開発中</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- プロダクトカード3 -->
+                        <div class="product-card">
+                            <div class="product-card-image">
+                                <img src="../images/book.jpg" alt="AI小説サービス">
+                                <div class="product-tag">Coming Soon</div>
+                            </div>
+                            <div class="product-card-content">
+                                <h3>自分好みの小説をAIが生成</h3>
+                                <p class="product-card-catchphrase">AIを活用したレコメンド小説サービス</p>
+                                <p class="product-card-description">自分の好きな小説をAIに教えることで
+                                    最終的にAIが自分の好みの小説を作ってくれます。</p>
+                                <div class="product-card-actions">
+                                    <a href="products.html#ai-writing-detail" class="btn-product btn-disabled">開発中</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="action-button">
-                    <a href="services.html" class="btn">詳しく見る</a>
+            </div>
+        </section>
+
+        <!-- 会社情報 -->
+        <section id="company" class="company section">
+            <div class="section-inner">
+                <div class="section-header">
+                    <h2>
+                        <span class="en">Company</span>
+                        <span class="ja">会社情報</span>
+                    </h2>
+                </div>
+                <div class="section-content">
+                    <div class="company-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2025年4月</div>
+                            <div class="timeline-content">
+                                <h3>会社設立</h3>
+                                <p>合同会社JIKKENを設立。AIを活用したプロダクト開発を開始。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2025年2月</div>
+                            <div class="timeline-content">
+                                <h3>しゃべるノートのベータ版リリース</h3>
+                                <p>第一弾プロダクトのベータ版をリリース</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -228,19 +280,16 @@
             </div>
             <nav class="footer-nav">
                 <ul>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="products.html">AI Product</a></li>
-                    <li><a href="services.html">Service</a></li>
-                    <li><a href="company.html">Company</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#product">AI Product</a></li>
+                    <li><a href="#services">Service</a></li>
+                    <li><a href="#company">Company</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
             <p class="copyright">© 2025 JIKKEN Inc. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <!-- オーバーレイ -->
-    <div class="overlay"></div>
 
     <script src="js/mobile-script.js"></script>
 </body>

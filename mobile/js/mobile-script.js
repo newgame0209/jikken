@@ -1,105 +1,120 @@
 // モバイル用のJavaScript
 
-document.addEventListener('DOMContentLoaded', () => {
-    // ハンバーガーメニューの初期化
-    initHamburgerMenu();
+document.addEventListener('DOMContentLoaded', function() {
+    // ローディングアニメーション
+    const loading = document.querySelector('.loading');
     
-    // スムーススクロール
-    initSmoothScroll();
-    
-    // スクロールアニメーションの初期化
-    initScrollAnimation();
-});
+    if (loading) {
+        setTimeout(function() {
+            loading.classList.add('hide');
+            setTimeout(function() {
+                loading.style.display = 'none';
+            }, 500);
+        }, 1500);
+    }
 
-// ハンバーガーメニューの初期化
-function initHamburgerMenu() {
-    const hamburger = document.querySelector('.hamburger-menu');
-    const nav = document.querySelector('header nav');
+    // ハンバーガーメニュー
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('nav');
     const overlay = document.querySelector('.overlay');
-    const body = document.body;
-    
-    if (hamburger && nav && overlay) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    if (hamburgerMenu && nav && overlay) {
+        hamburgerMenu.addEventListener('click', function() {
+            hamburgerMenu.classList.toggle('active');
             nav.classList.toggle('active');
             overlay.classList.toggle('active');
-            body.classList.toggle('no-scroll');
+            document.body.classList.toggle('no-scroll');
         });
-        
-        overlay.addEventListener('click', () => {
-            hamburger.classList.remove('active');
+
+        // オーバーレイクリックでメニューを閉じる
+        overlay.addEventListener('click', function() {
+            hamburgerMenu.classList.remove('active');
             nav.classList.remove('active');
             overlay.classList.remove('active');
-            body.classList.remove('no-scroll');
+            document.body.classList.remove('no-scroll');
         });
-        
-        // ナビゲーションリンクがクリックされたらメニューを閉じる
-        const navLinks = nav.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
+
+        // ナビゲーションリンククリックでメニューを閉じる
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                hamburgerMenu.classList.remove('active');
                 nav.classList.remove('active');
                 overlay.classList.remove('active');
-                body.classList.remove('no-scroll');
+                document.body.classList.remove('no-scroll');
             });
         });
     }
-}
 
-// スムーススクロール
-function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+    // スムーズスクロール
+    const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
+    
+    smoothScrollLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
             
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            const target = document.querySelector(this.getAttribute('href'));
             
-            const targetElement = document.querySelector(targetId);
-            if (!targetElement) return;
-            
-            const headerHeight = document.querySelector('header').offsetHeight;
-            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        });
-    });
-}
+            if (target) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = targetPosition - headerHeight;
 
-// スクロールアニメーションの初期化
-function initScrollAnimation() {
-    // アニメーション対象の要素
-    const targets = [
-        '.fade-in',
-        '.fade-up',
-        '.fade-left',
-        '.fade-right'
-    ];
-    
-    // IntersectionObserverの設定
-    const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-    
-    // スクロール時に要素が画面内に入ったらvisibleクラスを追加
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
             }
         });
-    }, options);
-    
-    // 各ターゲット要素を監視
-    targets.forEach(selector => {
-        document.querySelectorAll(selector).forEach(el => {
-            observer.observe(el);
-        });
     });
-} 
+
+    // スクロール検出でヘッダースタイル変更
+    const header = document.querySelector('header');
+    let lastScrollTop = 0;
+    
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        if (scrollTop > lastScrollTop) {
+            // 下にスクロール
+            header.classList.add('header-hidden');
+        } else {
+            // 上にスクロール
+            header.classList.remove('header-hidden');
+        }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+
+    // 画像の遅延読み込み
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        
+        lazyImages.forEach(function(img) {
+            imageObserver.observe(img);
+        });
+    } else {
+        // Intersection Observer非対応ブラウザ用のフォールバック
+        lazyImages.forEach(function(img) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+        });
+    }
+}); 
