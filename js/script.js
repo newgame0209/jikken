@@ -1,7 +1,5 @@
 // DOMコンテンツの読み込み完了時に実行
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM Content Loaded');
-    
     // スクロールアニメーションの初期化
     initScrollAnimation();
     
@@ -16,102 +14,72 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // ハンバーガーメニューの初期化
     initHamburgerMenu();
-    
-    console.log('全ての初期化が完了しました');
 });
 
 // ハンバーガーメニューの初期化
 function initHamburgerMenu() {
-    console.log('ハンバーガーメニュー初期化開始');
-    
     const hamburger = document.querySelector('.hamburger-menu');
     const nav = document.querySelector('header nav');
     const overlay = document.querySelector('.overlay');
     const body = document.body;
-    
-    if (!hamburger) {
-        console.error('ハンバーガーメニュー要素が見つかりません');
+    const navLinks = nav.querySelectorAll('a'); // ナビゲーション内のリンクを取得
+
+    if (!hamburger || !nav || !overlay) {
+        console.error('Hamburger menu elements not found.');
         return;
     }
-    
-    if (!nav) {
-        console.error('ナビゲーション要素が見つかりません');
-        return;
-    }
-    
-    if (!overlay) {
-        console.error('オーバーレイ要素が見つかりません');
-        return;
-    }
-    
-    console.log('ハンバーガーメニュー要素を取得しました');
-    
-    // メニューを閉じる関数
-    function closeMenu() {
-        console.log('メニューを閉じます');
-        hamburger.classList.remove('active');
-        nav.classList.remove('active');
-        overlay.classList.remove('active');
-        body.classList.remove('no-scroll');
-    }
-    
-    // ハンバーガーメニュークリック時の処理
-    hamburger.addEventListener('click', function() {
-        console.log('ハンバーガーメニューがクリックされました');
+
+    const toggleMenu = () => {
         hamburger.classList.toggle('active');
         nav.classList.toggle('active');
         overlay.classList.toggle('active');
         body.classList.toggle('no-scroll');
+    };
+
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation(); // クリックイベントが親要素に伝播しないようにする
+        toggleMenu();
     });
-    
-    // オーバーレイクリック時の処理
-    overlay.addEventListener('click', function() {
-        console.log('オーバーレイがクリックされました');
-        closeMenu();
+
+    overlay.addEventListener('click', () => {
+        if (nav.classList.contains('active')) {
+            toggleMenu();
+        }
     });
-    
-    // ナビゲーションリンクのクリックイベント
-    const navLinks = nav.querySelectorAll('a');
-    console.log(`ナビゲーションリンク数: ${navLinks.length}`);
-    
-    navLinks.forEach((link, index) => {
-        link.addEventListener('click', function(e) {
-            console.log(`リンク[${index}]がクリックされました: ${link.getAttribute('href')}`);
-            
-            // メニューを閉じる
-            closeMenu();
-            
-            // 同じページ内のハッシュリンク(#で始まるリンク)の場合
+
+    // 各ナビゲーションリンクにイベントリスナーを追加
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // 外部リンクや別ページへのリンクの場合はデフォルト動作
             const href = link.getAttribute('href');
-            if (href && href.startsWith('#') && document.querySelector(href)) {
-                console.log(`ハッシュリンク: ${href} を処理します`);
-                e.preventDefault();
-                
-                // スクロール先の要素を取得
-                const targetElement = document.querySelector(href);
-                
-                if (targetElement) {
-                    // ヘッダーの高さを考慮したスクロール位置
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                    
-                    console.log(`スクロール位置: ${targetPosition}px`);
-                    
-                    // スムーススクロール
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            } else {
-                console.log('通常のリンクとして処理: ページ遷移を許可');
-                // 通常のリンクの場合は、デフォルトのページ遷移を許可
-                return true;
+            const isExternal = href.startsWith('http') || !href.startsWith('#');
+            const isCurrentPageLink = href.startsWith('#') && window.location.pathname.endsWith('index.html'); // TOPページ内リンクかチェック
+
+            if (nav.classList.contains('active')) {
+                 // 同じページ内のアンカーリンクでなければ、ページ遷移前にメニューを閉じる
+                 // (スムーススクロールが別途処理するため、ここでは閉じない)
+                 if (!isCurrentPageLink) { 
+                      toggleMenu();
+                 }
             }
+            
+             // スムーススクロールのための処理は initSmoothScroll で行うため、ここでは何もしない
+             // ただし、メニューはクリックされたら閉じる必要がある場合がある。
+             // 特に別ページへのリンクの場合は、遷移前に閉じておくのが自然。
+             if (isExternal || !href.startsWith('#')) {
+                 // toggleMenu() はページ遷移後に実行されるので、ここでは不要かもしれないが、念のため。
+                 // メニューが開いている場合のみ閉じる
+                 if (nav.classList.contains('active')) {
+                     toggleMenu();
+                 }
+             } else if (isCurrentPageLink) {
+                // TOPページ内リンクの場合、スムーススクロール後に閉じるように initSmoothScroll 側で対応する
+                // ここで閉じるとスクロールがおかしくなる可能性があるため、何もしない
+                // ただし、スムーススクロール対象外の#リンクの場合は閉じるべきかもしれない
+                // 一旦、initSmoothScrollに任せる
+             }
         });
     });
-    
-    console.log('ハンバーガーメニュー初期化完了');
 }
 
 // スクロールアニメーションの初期化
@@ -225,6 +193,18 @@ function initSmoothScroll() {
                 top: targetPosition,
                 behavior: 'smooth'
             });
+            
+            // TOPページ内リンクの場合、スムーススクロール後にメニューを閉じる
+            if (targetId.startsWith('#') && window.location.pathname.endsWith('index.html')) {
+                const hamburger = document.querySelector('.hamburger-menu');
+                const nav = document.querySelector('header nav');
+                if (nav.classList.contains('active')) {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                    document.querySelector('.overlay').classList.remove('active');
+                    document.body.classList.remove('no-scroll');
+                }
+            }
         });
     });
 }
