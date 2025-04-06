@@ -555,22 +555,6 @@ header nav.global-nav ul li a .nav-ja {
 /* サービス */
 .services.section {
     padding: 80px 0;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.section-inner {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-}
-
-.section-content {
-    width: 100%;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 .service-list {
@@ -647,28 +631,17 @@ header nav.global-nav ul li a .nav-ja {
 }
 
 @media (max-width: 768px) {
-    /* 共通のモバイル設定 */
-    body {
-        overflow-x: hidden;
-        width: 100%;
-        position: relative;
-    }
-    
-    /* サービスセクション */
     .services.section {
         padding: 40px 0;
-        width: 100vw;
-        max-width: 100%;
-        overflow-x: hidden;
+        width: 100%;
         box-sizing: border-box;
     }
     
     .services.section .section-inner {
         width: 100%;
-        padding: 0 15px;
+        padding: 0 10px;
         margin: 0 auto;
         box-sizing: border-box;
-        max-width: 100%;
     }
     
     .services.section .section-content {
@@ -742,74 +715,6 @@ header nav.global-nav ul li a .nav-ja {
     
     .service-actions .btn-product {
         min-width: 120px;
-    }
-    
-    /* プロダクトページの修正 */
-    .product-detail-section .product-detail-content {
-        flex-direction: column;
-        width: 100%;
-        padding: 20px;
-        box-sizing: border-box;
-    }
-    
-    .product-list-section {
-        overflow-x: hidden;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    
-    .product-card-container {
-        width: 100%;
-        box-sizing: border-box;
-        overflow-x: hidden;
-    }
-    
-    .product-card {
-        width: 100%;
-        box-sizing: border-box;
-        margin: 0 0 20px 0;
-    }
-    
-    /* 会社概要の代表メッセージ写真の余白調整 */
-    .ceo-message {
-        margin-bottom: 30px;
-    }
-    
-    .ceo-message img {
-        margin-bottom: 10px;
-    }
-    
-    /* Aboutページの長い文章を読みやすく */
-    .mindset-content p {
-        font-size: 14px;
-        line-height: 1.6;
-        margin-bottom: 15px;
-        width: 100%;
-        box-sizing: border-box;
-        text-align: justify;
-    }
-}
-
-/* 全ページの横スクロール防止 */
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-/* モバイル向け横スクロール防止 */
-@media (max-width: 768px) {
-    .container, 
-    .section, 
-    .section-inner, 
-    .section-content,
-    .product-section,
-    .product-detail-section,
-    .company-section,
-    .about-section {
-        max-width: 100vw;
-        width: 100%;
-        overflow-x: hidden;
-        box-sizing: border-box;
     }
 }
 
@@ -2815,5 +2720,55 @@ footer nav.footer-nav ul li a:hover {
         position: absolute;
         right: 15px;
         top: 15px;
+    }
+}
+
+/* スマホ表示のレイアウト問題を修正 */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden; /* 全体の横スクロール防止 */
+    }
+
+    .section-inner {
+        width: 100%;
+        padding: 0 10px; /* 左右に少しだけ余白を残す */
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    
+    /* TOPページ サービスセクション */
+    .services.section .section-inner {
+        padding: 0; /* サービスセクションは左右パディングなし */
+    }
+    
+    /* プロダクトページ */
+    .product-detail-section,
+    .product-list-section { /* 必要に応じて他のセクションも追加 */
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden; /* 個別セクションの横スクロール防止 */
+        box-sizing: border-box;
+        padding: 40px 10px; /* 他のセクション同様の左右パディング */
+    }
+    
+    .product-detail-section .section-inner,
+    .product-list-section .section-inner {
+        padding: 0; /* プロダクトページ内のinnerもパディング調整 */
+    }
+    
+    .product-detail-content {
+        /* 必要に応じてスタイル調整 */
+        width: 100%; 
+        box-sizing: border-box;
+    }
+    
+    /* 会社概要ページ */
+    .ceo-profile img { /* 仮のセレクタ、実際の構造に合わせて調整 */
+        margin-bottom: 15px; /* 写真下の余白を減らす */
+    }
+    
+    /* Aboutページ */
+    .about-content p { /* 仮のセレクタ、実際の構造に合わせて調整 */
+        line-height: 1.7; /* 行間を広げて読みやすく */
     }
 }
