@@ -39,31 +39,41 @@ function initHamburgerMenu() {
         });
         
         // ナビゲーションリンクがクリックされたときの処理を追加
-        const navLinks = nav.querySelectorAll('a[href^="#"]');
+        const navLinks = nav.querySelectorAll('a');
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault();
+                const href = link.getAttribute('href');
                 
-                // メニューを閉じる
-                hamburger.classList.remove('active');
-                nav.classList.remove('active');
-                overlay.classList.remove('active');
-                body.classList.remove('no-scroll');
-                
-                // スクロール先の要素を取得
-                const targetId = link.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    // ヘッダーの高さを考慮したスクロール位置
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                // 内部リンク（#から始まるリンク）の場合の処理
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
                     
-                    // スムーススクロール
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
+                    // メニューを閉じる
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                    overlay.classList.remove('active');
+                    body.classList.remove('no-scroll');
+                    
+                    // スクロール先の要素を取得
+                    const targetElement = document.querySelector(href);
+                    
+                    if (targetElement) {
+                        // ヘッダーの高さを考慮したスクロール位置
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        // スムーススクロール
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                } else {
+                    // メニューを閉じる（外部リンクの場合も閉じる）
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                    overlay.classList.remove('active');
+                    body.classList.remove('no-scroll');
                 }
             });
         });
@@ -164,7 +174,7 @@ function initHeaderScroll() {
 
 // スムーススクロール
 function initSmoothScroll() {
-    // ヘッダーの外のセクションリンクをすべて取得（aタグのhref属性が#で始まり、topでないもの）
+    // ヘッダーの外のセクションリンクをすべて取得
     document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
