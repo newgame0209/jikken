@@ -553,23 +553,30 @@ header nav.global-nav ul li a .nav-ja {
 }
 
 /* サービス */
+.services.section {
+    padding: 80px 0;
+}
+
 .service-list {
     display: flex;
     flex-direction: column;
     gap: 40px;
     margin-top: 30px;
     padding: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .service-item {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     background-color: #f9f9f9;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     position: relative;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .service-number {
@@ -624,89 +631,90 @@ header nav.global-nav ul li a .nav-ja {
 }
 
 @media (max-width: 768px) {
+    .services.section {
+        padding: 40px 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .services.section .section-inner {
+        width: 100%;
+        padding: 0 10px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    
+    .services.section .section-content {
+        width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .service-list {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
     .service-item {
         flex-direction: column;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         width: 100%;
-        max-width: 100%;
         box-sizing: border-box;
     }
     
     .service-number {
-        top: 10px;
-        left: 10px;
-        font-size: 40px;
+        top: 5px;
+        left: 5px;
+        font-size: 36px;
     }
     
     .service-image {
         width: 100%;
-        padding: 20px 20px 10px;
-        display: flex;
-        justify-content: center;
+        padding: 30px 0 5px;
+        text-align: center;
         box-sizing: border-box;
     }
     
     .service-image img {
-        max-width: 120px;
-        max-height: 120px;
+        max-width: 100px;
+        max-height: 100px;
     }
     
     .service-info {
         width: 100%;
-        padding: 10px 20px 20px;
+        padding: 10px 15px 15px;
         text-align: center;
         box-sizing: border-box;
     }
     
     .service-info h3 {
         font-size: 18px;
-        margin-bottom: 8px;
+        margin-bottom: 5px;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .service-info p {
         font-size: 14px;
         margin-bottom: 10px;
         line-height: 1.4;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .service-actions {
         margin-top: 5px;
         margin-bottom: 10px;
-    }
-    
-    .service-list {
         width: 100%;
-        padding: 0 15px;
-        margin: 0 auto;
+        display: flex;
+        justify-content: center;
         box-sizing: border-box;
     }
     
-    .services.section .section-inner {
-        width: 100%;
-        max-width: 100%;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    .services.section .section-content {
-        width: 100%;
-        max-width: 100%;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    .services.section {
-        padding: 50px 0;
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-    
-    .section-inner {
-        width: 100%;
-        max-width: 100%;
-        padding: 0 15px;
-        box-sizing: border-box;
+    .service-actions .btn-product {
+        min-width: 120px;
     }
 }
 
@@ -1400,7 +1408,7 @@ footer nav.footer-nav ul li a:hover {
     }
     
     .product-detail-section .product-detail-content {
-        padding: 20px;
+        flex-direction: column;
     }
     
     .product-detail-header h2 {

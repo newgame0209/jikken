@@ -38,14 +38,33 @@ function initHamburgerMenu() {
             body.classList.remove('no-scroll');
         });
         
-        // ナビゲーションリンクがクリックされたらメニューを閉じる
-        const navLinks = nav.querySelectorAll('a');
+        // ナビゲーションリンクがクリックされたときの処理を追加
+        const navLinks = nav.querySelectorAll('a[href^="#"]');
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // メニューを閉じる
                 hamburger.classList.remove('active');
                 nav.classList.remove('active');
                 overlay.classList.remove('active');
                 body.classList.remove('no-scroll');
+                
+                // スクロール先の要素を取得
+                const targetId = link.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // ヘッダーの高さを考慮したスクロール位置
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    // スムーススクロール
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     }
@@ -145,12 +164,12 @@ function initHeaderScroll() {
 
 // スムーススクロール
 function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // ヘッダーの外のセクションリンクをすべて取得（aタグのhref属性が#で始まり、topでないもの）
+    document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
             
             const targetElement = document.querySelector(targetId);
             if (!targetElement) return;
@@ -158,20 +177,6 @@ function initSmoothScroll() {
             const headerHeight = document.querySelector('header').offsetHeight;
             const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
             
-            // メニューを閉じる
-            const hamburger = document.querySelector('.hamburger-menu');
-            const nav = document.querySelector('header nav');
-            const overlay = document.querySelector('.overlay');
-            const body = document.body;
-            
-            if (hamburger && nav && overlay) {
-                hamburger.classList.remove('active');
-                nav.classList.remove('active');
-                overlay.classList.remove('active');
-                body.classList.remove('no-scroll');
-            }
-            
-            // スムーススクロール
             window.scrollTo({
                 top: targetPosition,
                 behavior: 'smooth'
