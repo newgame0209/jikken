@@ -158,6 +158,19 @@ function initSmoothScroll() {
             const headerHeight = document.querySelector('header').offsetHeight;
             const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
             
+            // ハンバーガーメニューを閉じる
+            const hamburger = document.querySelector('.hamburger-menu');
+            const nav = document.querySelector('header nav');
+            const overlay = document.querySelector('.overlay');
+            const body = document.body;
+            
+            if (hamburger && nav && overlay) {
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                body.classList.remove('no-scroll');
+            }
+            
             window.scrollTo({
                 top: targetPosition,
                 behavior: 'smooth'
