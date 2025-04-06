@@ -66,11 +66,12 @@
     </header>
 
     <div class="main-content">
-        <!-- プロダクトヘッダー -->
+        <!-- ページヘッダー -->
         <section class="page-header">
             <div class="page-header-inner">
                 <h1 class="page-title">AI Products</h1>
-                <p class="page-description">私たちが開発するAIを活用した<br>革新的なプロダクト一覧</p>
+                <p class="page-description">私たちのプロダクト</p>
+                <p class="page-subtitle">私たちが開発している生成AIを活用したプロダクトをご紹介します。日常生活をちょっと便利に、ちょっと幸せにするサービスをお届けします。</p>
             </div>
         </section>
 
@@ -78,58 +79,129 @@
         <section class="section" id="product-list">
             <div class="section-inner">
                 <div class="section-header">
-                    <h2 class="section-title">プロダクト一覧</h2>
-                    <p class="section-subtitle">私たちの最新AIプロダクト</p>
+                    <h2 class="section-title">Our Products</h2>
+                    <p class="section-subtitle">毎月新しいプロダクトをリリースしています</p>
                 </div>
                 
-                <div class="product-filters">
-                    <button class="filter-btn active" data-filter="all">すべて</button>
-                    <button class="filter-btn" data-filter="free">無料</button>
-                    <button class="filter-btn" data-filter="business">ビジネス</button>
-                    <button class="filter-btn" data-filter="creative">クリエイティブ</button>
+                <div class="section-description">
+                    <p>JIKKENでは、生成AIを活用した革新的なプロダクトを開発しています。私たちのプロダクトは、日常生活や仕事の効率化、創造性の向上をサポートします。</p>
+                </div>
+                
+                <div class="products-filter">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="new">New Release</button>
+                    <button class="filter-btn" data-filter="coming">Coming Soon</button>
+                    <button class="filter-btn" data-filter="demo">Demo</button>
                 </div>
 
                 <div class="product-grid">
-                    <!-- プロダクト1 -->
-                    <div class="product-card" data-category="free creative">
-                        <div class="product-image">
-                            <img src="../images/product-1.jpg" alt="AI Writing Assistant">
-                            <span class="product-tag free-tag">無料</span>
+                    <!-- プロダクト1：しゃべるノート -->
+                    <div class="product-card" data-category="new demo">
+                        <div class="product-card-image">
+                            <img src="../images/note.jpg" alt="しゃべるノート">
+                            <div class="product-tag">New</div>
+                            <div class="product-tag free-tag">Demo</div>
                         </div>
-                        <div class="product-content">
-                            <h3>AI Writing Assistant</h3>
-                            <p class="product-description">あなたの文章を分析し、より魅力的な表現に変換します。ブログ、SNS投稿、ビジネス文書など、様々な文章作成をサポート。</p>
-                            <div class="product-action">
-                                <a href="#" class="btn">使ってみる</a>
+                        <div class="product-card-content">
+                            <h3>しゃべるノート</h3>
+                            <p class="product-card-catchphrase">書いて覚える。聞いて定着させる。</p>
+                            <p class="product-card-description">テキストをAIの自然な声で読み上げるサービスです。長文を聞きながら理解したり、自分の文章を耳で確認したりすることができます。多言語対応で、学習や仕事の効率化に役立ちます。</p>
+                            <div class="product-features">
+                                <span class="feature-tag">AI音声合成</span>
+                                <span class="feature-tag">手書き認識</span>
+                                <span class="feature-tag">学習支援</span>
+                            </div>
+                            <div class="product-card-actions">
+                                <a href="#" class="btn-product btn-disabled">開発中</a>
+                                <a href="#speaking-note-detail" class="btn-detail">詳細を見る</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- プロダクト2 -->
-                    <div class="product-card" data-category="free creative">
-                        <div class="product-image">
-                            <img src="../images/product-2.jpg" alt="AI Image Generator">
-                            <span class="product-tag free-tag">無料</span>
+                    <!-- プロダクト2：AI学習アシスタント -->
+                    <div class="product-card" data-category="coming">
+                        <div class="product-card-image">
+                            <img src="../images/aifx.jpg" alt="AI学習アシスタント">
+                            <div class="product-tag">Coming Soon</div>
                         </div>
-                        <div class="product-content">
-                            <h3>AI Image Generator</h3>
-                            <p class="product-description">テキストプロンプトから美しいイラストや画像を生成。あなたのアイデアを視覚化します。</p>
-                            <div class="product-action">
-                                <a href="#" class="btn">使ってみる</a>
+                        <div class="product-card-content">
+                            <h3>AI学習アシスタント</h3>
+                            <p class="product-card-catchphrase">パーソナライズな学習カリキュラムを作成</p>
+                            <p class="product-card-description">専門資格の勉強やプログラミングの勉強など自分が学びたい内容をAIがサポートしてくれます。</p>
+                            <div class="product-features">
+                                <span class="feature-tag">タスク管理</span>
+                                <span class="feature-tag">カリキュラム作成</span>
+                                <span class="feature-tag">AIチャット機能</span>
+                            </div>
+                            <div class="product-card-actions">
+                                <a href="#" class="btn-product btn-disabled">開発中</a>
+                                <a href="#ai-assistant-detail" class="btn-detail">詳細を見る</a>
                             </div>
                         </div>
                     </div>
-
-                    <!-- プロダクト3 -->
-                    <div class="product-card" data-category="business">
-                        <div class="product-image">
-                            <img src="../images/product-3.jpg" alt="AI Business Analyzer">
+                    
+                    <!-- プロダクト3：AI小説サービス -->
+                    <div class="product-card" data-category="coming">
+                        <div class="product-card-image">
+                            <img src="../images/book.jpg" alt="AI小説サービス">
+                            <div class="product-tag">Coming Soon</div>
                         </div>
-                        <div class="product-content">
-                            <h3>AI Business Analyzer</h3>
-                            <p class="product-description">ビジネスデータを分析し、重要な洞察を提供。意思決定をサポートするAIツール。</p>
+                        <div class="product-card-content">
+                            <h3>自分好みの小説をAIが生成</h3>
+                            <p class="product-card-catchphrase">AIを活用したレコメンド小説サービス</p>
+                            <p class="product-card-description">自分の好きな小説をAIに教えることで最終的にAIが自分の好みの小説を作ってくれます。</p>
+                            <div class="product-features">
+                                <span class="feature-tag">オリジナル小説の生成</span>
+                                <span class="feature-tag">自分好みの小説家や小説をレコメンド</span>
+                                <span class="feature-tag">AIとの共同創作</span>
+                            </div>
+                            <div class="product-card-actions">
+                                <a href="#" class="btn-product btn-disabled">開発中</a>
+                                <a href="#ai-writing-detail" class="btn-detail">詳細を見る</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- プロダクト詳細：しゃべるノート -->
+        <section id="speaking-note-detail" class="product-detail-section">
+            <div class="section-inner">
+                <div class="product-detail-content">
+                    <div class="product-detail-header">
+                        <h2>しゃべるノート</h2>
+                        <p class="product-detail-catchphrase">書いて覚える。聞いて定着させる。</p>
+                    </div>
+                    <div class="product-detail-description">
+                        <p>「しゃべるノート」は、テキストをAIの自然な声で読み上げるサービスです。長文を聞きながら理解したり、自分の文章を耳で確認したりすることができます。多言語対応で、学習や仕事の効率化に役立ちます。</p>
+                        <p>音声合成技術を活用し、自然な抑揚や感情表現を含んだ読み上げを実現しています。テキストの内容に合わせて、適切な速度やトーンで読み上げることができます。</p>
+                    </div>
+                    
+                    <div class="product-detail-main">
+                        <div class="product-detail-image">
+                            <img src="../images/note01.jpg" alt="しゃべるノート詳細画像">
+                        </div>
+                        <div class="product-detail-text">
+                            <h3>特徴</h3>
+                            <ul class="feature-list">
+                                <li>手書きもテキスト入力も対応</li>
+                                <li>自然な日本語の音声合成</li>
+                                <li>速度・音程調整可能</li>
+                                <li>繰り返し再生でリスニング学習</li>
+                                <li>クラウド保存で端末間同期</li>
+                            </ul>
+                            
+                            <h3>こんな方におすすめ</h3>
+                            <ul class="recommend-list">
+                                <li>試験勉強中の学生</li>
+                                <li>語学学習者</li>
+                                <li>聴覚的な情報処理が得意な方</li>
+                                <li>通勤・通学中に学習したい方</li>
+                            </ul>
+                            
                             <div class="product-action">
-                                <a href="#" class="btn">詳細を見る</a>
+                                <a href="" class="btn-start">今すぐ使ってみる</a>
                             </div>
                         </div>
                     </div>
@@ -141,10 +213,10 @@
         <section class="section cta-section">
             <div class="section-inner">
                 <div class="cta-content">
-                    <h2>あなたのアイデアを<br>AIで実現しませんか？</h2>
+                    <h2>あなたのアイデアをAIで実現しませんか？</h2>
                     <p>カスタムAIソリューションのご相談も承ります。</p>
-                    <div class="cta-action">
-                        <a href="contact.html" class="btn">お問い合わせ</a>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn-start">お問い合わせ</a>
                     </div>
                 </div>
             </div>
@@ -175,6 +247,6 @@
     <!-- オーバーレイ -->
     <div class="overlay"></div>
 
-    <script src="js/mobile-script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html> 
