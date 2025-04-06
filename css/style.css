@@ -15,8 +15,10 @@ body {
     background-color: var(--bg-color);
     font-size: 18px;
     line-height: 1.8;
-    overflow-x: hidden;
-    letter-spacing: 0.02em;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    position: relative !important;
+    max-width: 100% !important;
 }
 
 body.no-scroll {
@@ -296,31 +298,37 @@ header nav.global-nav ul li a .nav-ja {
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    font-size: 12px;
-    opacity: 0;
-    animation: fadeIn 1s ease 3s forwards;
+    font-size: 14px;
+    font-weight: 300;
+    opacity: 0.7;
+    animation: bounce 2s infinite;
     z-index: 10;
+    width: 30px;
+    height: 60px;
 }
 
 .scroll-down span {
     display: block;
-    margin-bottom: 8px;
-    letter-spacing: 1px;
+    margin-bottom: 5px;
+    font-size: 12px;
 }
 
 .scroll-down svg {
-    animation: bounce 2s infinite;
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: 0 auto;
 }
 
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
+        transform: translateY(0) translateX(-50%);
     }
     40% {
-        transform: translateY(-10px);
+        transform: translateY(-10px) translateX(-50%);
     }
     60% {
-        transform: translateY(-5px);
+        transform: translateY(-5px) translateX(-50%);
     }
 }
 
@@ -382,6 +390,10 @@ header nav.global-nav ul li a .nav-ja {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    position: relative !important;
 }
 
 .section-header {
@@ -497,26 +509,18 @@ header nav.global-nav ul li a .nav-ja {
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease forwards;
-    animation-delay: calc(0.2s * var(--order, 1));
-}
-
-.member-card:nth-child(1) {
-    --order: 1;
-}
-
-.member-card:nth-child(2) {
-    --order: 2;
-}
-
-.member-card:nth-child(3) {
-    --order: 3;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    position: relative !important;
 }
 
 .member-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
@@ -552,6 +556,38 @@ header nav.global-nav ul li a .nav-ja {
     font-weight: 500;
 }
 
+/* 沿革 */
+.company-history-container .timeline {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.company-history-container .timeline-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 20px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.company-history-container .timeline-date {
+    font-weight: bold;
+    color: #004C4F;
+    position: relative;
+}
+
+.company-history-container .timeline-content {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.company-history-container .timeline-content h3 {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
 /* サービス */
 .services.section {
     padding: 80px 0;
@@ -577,6 +613,9 @@ header nav.global-nav ul li a .nav-ja {
     position: relative;
     width: 100%;
     box-sizing: border-box;
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+    position: relative !important;
 }
 
 .service-number {
@@ -724,6 +763,10 @@ header nav.global-nav ul li a .nav-ja {
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 30px;
     margin-top: 60px;
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    position: relative !important;
 }
 
 .product-card {
@@ -736,6 +779,10 @@ header nav.global-nav ul li a .nav-ja {
     display: flex;
     flex-direction: column;
     height: 100%;
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    position: relative !important;
 }
 
 .product-card:hover {
@@ -1032,315 +1079,6 @@ footer nav.footer-nav ul li a:hover {
         display: block;
     }
     
-    /* メインビジュアルの調整 */
-    .main-visual-content {
-        flex-direction: column-reverse;
-        padding: 20px;
-    }
-    
-    .visual-text, 
-    .visual-illustration {
-        width: 100%;
-        text-align: center;
-    }
-    
-    .visual-text h1 {
-        font-size: 32px;
-        text-align: center;
-    }
-    
-    .visual-illustration {
-        margin-bottom: 30px;
-        margin-top: 60px;
-    }
-    
-    .main-illustration {
-        max-width: 80%;
-        margin: 0 auto;
-    }
-    
-    /* セクション内の余白調整 */
-    .section-inner {
-        padding: 0 20px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    
-    /* サービスセクションの横幅を100%に */
-    #services .section-inner,
-    .services .section-inner,
-    .services-list {
-        width: 100%;
-        max-width: 100%;
-        padding-left: 20px;
-        padding-right: 20px;
-        box-sizing: border-box;
-    }
-    
-    .service-item {
-        width: 100%;
-        margin-bottom: 30px;
-    }
-    
-    /* プロダクトページの横スクロール防止 */
-    body {
-        overflow-x: hidden;
-        width: 100%;
-        position: relative;
-    }
-    
-    .products-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
-        width: 100%;
-        overflow: hidden;
-    }
-    
-    .product-item {
-        width: 100%;
-        margin-right: 0;
-    }
-    
-    .product-card {
-        width: 100%;
-    }
-    
-    /* テキストとイラストのブロック調整 */
-    .text-illustration-block {
-        flex-direction: column;
-    }
-    
-    .text-illustration-block .text,
-    .text-illustration-block .illustration {
-        width: 100%;
-    }
-    
-    /* スクロールダウン表示の調整 */
-    .scroll-down {
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    /* アクションボタンの調整 */
-    .action-button {
-        margin-bottom: 60px;
-    }
-    
-    /* メンバーリストの調整 */
-    .members-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
-    
-    .member-card {
-        width: calc(50% - 10px);
-        margin-bottom: 20px;
-    }
-    
-    /* 代表メッセージの写真下の余白調整 */
-    .message-profile-photo {
-        margin-bottom: 10px;
-    }
-    
-    /* Aboutページのテキスト読みやすさ改善 */
-    .section-description p {
-        font-size: 14px;
-        line-height: 1.6;
-        letter-spacing: 0.02em;
-    }
-}
-
-@media (max-width: 480px) {
-    /* 画像サイズのさらなる最適化 */
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-    
-    /* テキストサイズの調整 */
-    p {
-        font-size: 14px;
-        line-height: 1.5;
-    }
-    
-    .section-title {
-        font-size: 24px;
-    }
-    
-    /* ヘッダーのロゴサイズ調整 */
-    .logo svg {
-        width: 120px;
-    }
-    
-    /* メインビジュアルのテキスト調整 */
-    .visual-text h1 {
-        font-size: 28px;
-    }
-    
-    .visual-description {
-        font-size: 14px;
-    }
-    
-    /* ボタンサイズのさらなる調整 */
-    .btn-start, .btn-product {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-    
-    /* サービスアイテムのレイアウト調整 */
-    .service-item {
-        width: 100%;
-    }
-    
-    /* メンバーカードのレイアウト調整 */
-    .member-card {
-        width: 100%;
-    }
-    
-    /* 会社情報テーブルのレイアウト調整 */
-    .company-profile-table {
-        font-size: 14px;
-    }
-    
-    .company-profile-table th,
-    .company-profile-table td {
-        padding: 10px;
-        display: block;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    
-    /* プロダクト詳細セクションの調整 */
-    .product-detail-content {
-        padding: 20px;
-    }
-    
-    .product-features-list li {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-    
-    /* コンタクトフォームの調整 */
-    .contact-form-container {
-        padding: 20px;
-    }
-    
-    .contact-form-group label {
-        font-size: 14px;
-        margin-bottom: 5px;
-    }
-    
-    /* 代表メッセージ写真の余白をさらに調整 */
-    .message-content {
-        margin-top: 10px;
-    }
-    
-    /* Aboutページの長文テキスト対応 */
-    .section-description p {
-        font-size: 13px;
-        line-height: 1.5;
-        text-align: left;
-    }
-    
-    /* プロダクトページの横スクロール防止の強化 */
-    html, body {
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-}
-
-@media (max-width: 768px) {
-    /* 画像サイズの最適化 */
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-    
-    /* ヘッダーの調整 */
-    header {
-        padding: 10px 0;
-    }
-    
-    .header-inner {
-        padding: 0 15px;
-        justify-content: space-between;
-    }
-    
-    /* ハンバーガーメニューの表示 */
-    .hamburger-menu {
-        display: block;
-        z-index: 1000;
-        position: absolute;
-        right: 15px;
-        top: 15px;
-    }
-    
-    /* ナビゲーションメニューのスタイル調整 */
-    header nav, 
-    header .global-nav, 
-    header nav.global-nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background-color: white;
-        padding: 80px 20px 20px;
-        transition: all 0.5s;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        z-index: 999;
-        overflow-y: auto;
-    }
-    
-    header nav.active, 
-    header .global-nav.active,
-    header nav.global-nav.active {
-        right: 0;
-    }
-    
-    header nav ul, 
-    header .global-nav ul,
-    header nav.global-nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    header nav ul li, 
-    header .global-nav ul li,
-    header nav.global-nav ul li {
-        margin: 15px 0;
-        width: 100%;
-    }
-    
-    header nav ul li a, 
-    header .global-nav ul li a,
-    header nav.global-nav ul li a {
-        display: block;
-        width: 100%;
-        padding: 10px 0;
-        font-size: 16px;
-    }
-    
-    /* オーバーレイのスタイル */
-    .overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-        z-index: 998;
-    }
-    
-    .overlay.active {
-        display: block;
-    }
-    
     /* 横スクロール防止 */
     html, body {
         overflow-x: hidden;
@@ -1361,8 +1099,6 @@ footer nav.footer-nav ul li a:hover {
     
     .visual-text h1 {
         font-size: 32px;
-        text-align: center;
-        line-height: 1.4;
     }
     
     .visual-illustration {
@@ -1499,7 +1235,7 @@ footer nav.footer-nav ul li a:hover {
         font-size: 15px;
     }
     
-    h1, h2, h3, h4, h5, h6 {
+    h1, h2, h3 {
         line-height: 1.4;
     }
     
@@ -1818,645 +1554,7 @@ footer nav.footer-nav ul li a:hover {
         font-size: 15px;
     }
     
-    h1, h2, h3, h4, h5, h6 {
-        line-height: 1.4;
-    }
-    
-    h1 {
-        font-size: 28px;
-    }
-    
-    h2 {
-        font-size: 24px;
-    }
-    
-    h3 {
-        font-size: 20px;
-    }
-    
-    /* テキスト切り詰め（line-clamp対応） */
-    .product-card-description,
-    .service-card-description {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        line-clamp: 3;
-        box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-height: 4.5em;
-    }
-    
-    /* ボタンサイズの調整（タップしやすく） */
-    .btn-start,
-    .btn-product,
-    .btn-contact,
-    .btn-more {
-        padding: 14px 20px;
-        font-size: 16px;
-        min-width: 200px;
-        display: block;
-        text-align: center;
-        margin: 10px auto;
-    }
-    
-    /* フォームの調整 */
-    .contact-form-group {
-        margin-bottom: 20px;
-    }
-    
-    .contact-form-group label {
-        font-size: 15px;
-        margin-bottom: 5px;
-    }
-    
-    .contact-form-group input,
-    .contact-form-group textarea,
-    .contact-form-group select {
-        padding: 12px;
-        font-size: 15px;
-    }
-    
-    /* フッターの調整 */
-    footer {
-        padding: 40px 0 20px;
-    }
-    
-    .footer-logo {
-        margin-bottom: 20px;
-    }
-    
-    .copyright {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 768px) {
-    /* 画像サイズの最適化 */
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-    
-    /* ヘッダーの調整 */
-    header {
-        padding: 10px 0;
-    }
-    
-    .header-inner {
-        padding: 0 15px;
-        justify-content: space-between;
-    }
-    
-    /* ハンバーガーメニューの表示 */
-    .hamburger-menu {
-        display: block;
-        z-index: 1000;
-        position: absolute;
-        right: 15px;
-        top: 15px;
-    }
-    
-    /* ナビゲーションメニューのスタイル調整 */
-    header nav, 
-    header .global-nav, 
-    header nav.global-nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background-color: white;
-        padding: 80px 20px 20px;
-        transition: all 0.5s;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        z-index: 999;
-        overflow-y: auto;
-    }
-    
-    header nav.active, 
-    header .global-nav.active,
-    header nav.global-nav.active {
-        right: 0;
-    }
-    
-    header nav ul, 
-    header .global-nav ul,
-    header nav.global-nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    header nav ul li, 
-    header .global-nav ul li,
-    header nav.global-nav ul li {
-        margin: 15px 0;
-        width: 100%;
-    }
-    
-    header nav ul li a, 
-    header .global-nav ul li a,
-    header nav.global-nav ul li a {
-        display: block;
-        width: 100%;
-        padding: 10px 0;
-        font-size: 16px;
-    }
-    
-    /* オーバーレイのスタイル */
-    .overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-        z-index: 998;
-    }
-    
-    .overlay.active {
-        display: block;
-    }
-    
-    /* 横スクロール防止 */
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
-    }
-    
-    /* メインビジュアルの調整 */
-    .main-visual-content {
-        flex-direction: column-reverse;
-        padding: 20px;
-    }
-    
-    .visual-text, 
-    .visual-illustration {
-        width: 100%;
-        text-align: center;
-    }
-    
-    .visual-text h1 {
-        font-size: 32px;
-        text-align: center;
-        line-height: 1.4;
-    }
-    
-    .visual-illustration {
-        margin-bottom: 30px;
-        margin-top: 60px;
-    }
-    
-    .main-illustration {
-        max-width: 80%;
-        margin: 0 auto;
-    }
-    
-    /* セクション内の余白調整 */
-    .section-inner {
-        padding: 0 20px;
-    }
-    
-    /* テキストとイラストのブロック調整 */
-    .text-illustration-block {
-        flex-direction: column;
-    }
-    
-    .text-illustration-block .text,
-    .text-illustration-block .illustration {
-        width: 100%;
-    }
-    
-    /* スクロールダウン表示の調整 */
-    .scroll-down {
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    /* アクションボタンの調整 */
-    .action-button {
-        margin-bottom: 60px;
-    }
-    
-    /* メンバーリストの調整 */
-    .members-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
-    
-    .member-card {
-        width: calc(50% - 10px);
-        margin-bottom: 20px;
-    }
-    
-    /* 会社情報テーブルの調整 */
-    .company-info dt,
-    .company-info dd {
-        width: 100%;
-        padding: 15px 0;
-    }
-    
-    .company-info dt {
-        border-bottom: none;
-        padding-bottom: 0;
-    }
-    
-    /* セクションヘッダーの調整 */
-    .section-header h2 .en {
-        font-size: 26px;
-    }
-    
-    /* フッターナビゲーションの調整 */
-    footer nav ul,
-    footer .footer-nav ul,
-    footer nav.footer-nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    footer nav ul li,
-    footer .footer-nav ul li,
-    footer nav.footer-nav ul li {
-        margin: 0 10px 10px;
-    }
-    
-    /* プロダクトページの調整 */
-    .product-card, 
-    .service-card {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    
-    .product-card-image img, 
-    .service-card-image img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-    
-    .product-detail-section .product-detail-content {
-        flex-direction: column;
-    }
-    
-    .product-detail-section .product-detail-image,
-    .product-detail-section .product-detail-info {
-        width: 100%;
-    }
-    
-    /* 会社情報ページの調整 */
-    .company-profile-table {
-        width: 100%;
-    }
-    
-    .company-profile-table th,
-    .company-profile-table td {
-        display: block;
-        width: 100%;
-        padding: 10px 0;
-    }
-    
-    .company-profile-table th {
-        border-bottom: none;
-        padding-bottom: 0;
-    }
-}
-
-@media (max-width: 480px) {
-    /* 画像サイズのさらなる最適化 */
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-    
-    /* テキストサイズの調整 */
-    body {
-        font-size: 15px;
-    }
-    
-    h1, h2, h3, h4, h5, h6 {
-        line-height: 1.4;
-    }
-    
-    h1 {
-        font-size: 28px;
-    }
-    
-    h2 {
-        font-size: 24px;
-    }
-    
-    h3 {
-        font-size: 20px;
-    }
-    
-    /* テキスト切り詰め（line-clamp対応） */
-    .product-card-description,
-    .service-card-description {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        line-clamp: 3;
-        box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-height: 4.5em;
-    }
-    
-    /* ボタンサイズの調整（タップしやすく） */
-    .btn-start,
-    .btn-product,
-    .btn-contact,
-    .btn-more {
-        padding: 14px 20px;
-        font-size: 16px;
-        min-width: 200px;
-        display: block;
-        text-align: center;
-        margin: 10px auto;
-    }
-    
-    /* フォームの調整 */
-    .contact-form-group {
-        margin-bottom: 20px;
-    }
-    
-    .contact-form-group label {
-        font-size: 15px;
-        margin-bottom: 5px;
-    }
-    
-    .contact-form-group input,
-    .contact-form-group textarea,
-    .contact-form-group select {
-        padding: 12px;
-        font-size: 15px;
-    }
-    
-    /* フッターの調整 */
-    footer {
-        padding: 40px 0 20px;
-    }
-    
-    .footer-logo {
-        margin-bottom: 20px;
-    }
-    
-    .copyright {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 768px) {
-    /* 画像サイズの最適化 */
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-    
-    /* ヘッダーの調整 */
-    header {
-        padding: 10px 0;
-    }
-    
-    .header-inner {
-        padding: 0 15px;
-        justify-content: space-between;
-    }
-    
-    /* ハンバーガーメニューの表示 */
-    .hamburger-menu {
-        display: block;
-        z-index: 1000;
-        position: absolute;
-        right: 15px;
-        top: 15px;
-    }
-    
-    /* ナビゲーションメニューのスタイル調整 */
-    header nav, 
-    header .global-nav, 
-    header nav.global-nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background-color: white;
-        padding: 80px 20px 20px;
-        transition: all 0.5s;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        z-index: 999;
-        overflow-y: auto;
-    }
-    
-    header nav.active, 
-    header .global-nav.active,
-    header nav.global-nav.active {
-        right: 0;
-    }
-    
-    header nav ul, 
-    header .global-nav ul,
-    header nav.global-nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    header nav ul li, 
-    header .global-nav ul li,
-    header nav.global-nav ul li {
-        margin: 15px 0;
-        width: 100%;
-    }
-    
-    header nav ul li a, 
-    header .global-nav ul li a,
-    header nav.global-nav ul li a {
-        display: block;
-        width: 100%;
-        padding: 10px 0;
-        font-size: 16px;
-    }
-    
-    /* オーバーレイのスタイル */
-    .overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-        z-index: 998;
-    }
-    
-    .overlay.active {
-        display: block;
-    }
-    
-    /* 横スクロール防止 */
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
-    }
-    
-    /* メインビジュアルの調整 */
-    .main-visual-content {
-        flex-direction: column-reverse;
-        padding: 20px;
-    }
-    
-    .visual-text, 
-    .visual-illustration {
-        width: 100%;
-        text-align: center;
-    }
-    
-    .visual-text h1 {
-        font-size: 32px;
-        text-align: center;
-        line-height: 1.4;
-    }
-    
-    .visual-illustration {
-        margin-bottom: 30px;
-        margin-top: 60px;
-    }
-    
-    .main-illustration {
-        max-width: 80%;
-        margin: 0 auto;
-    }
-    
-    /* セクション内の余白調整 */
-    .section-inner {
-        padding: 0 20px;
-    }
-    
-    /* テキストとイラストのブロック調整 */
-    .text-illustration-block {
-        flex-direction: column;
-    }
-    
-    .text-illustration-block .text,
-    .text-illustration-block .illustration {
-        width: 100%;
-    }
-    
-    /* スクロールダウン表示の調整 */
-    .scroll-down {
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    /* アクションボタンの調整 */
-    .action-button {
-        margin-bottom: 60px;
-    }
-    
-    /* メンバーリストの調整 */
-    .members-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
-    
-    .member-card {
-        width: calc(50% - 10px);
-        margin-bottom: 20px;
-    }
-    
-    /* 会社情報テーブルの調整 */
-    .company-info dt,
-    .company-info dd {
-        width: 100%;
-        padding: 15px 0;
-    }
-    
-    .company-info dt {
-        border-bottom: none;
-        padding-bottom: 0;
-    }
-    
-    /* セクションヘッダーの調整 */
-    .section-header h2 .en {
-        font-size: 26px;
-    }
-    
-    /* フッターナビゲーションの調整 */
-    footer nav ul,
-    footer .footer-nav ul,
-    footer nav.footer-nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    footer nav ul li,
-    footer .footer-nav ul li,
-    footer nav.footer-nav ul li {
-        margin: 0 10px 10px;
-    }
-    
-    /* プロダクトページの調整 */
-    .product-card, 
-    .service-card {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    
-    .product-card-image img, 
-    .service-card-image img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-    
-    .product-detail-section .product-detail-content {
-        flex-direction: column;
-    }
-    
-    .product-detail-section .product-detail-image,
-    .product-detail-section .product-detail-info {
-        width: 100%;
-    }
-    
-    /* 会社情報ページの調整 */
-    .company-profile-table {
-        width: 100%;
-    }
-    
-    .company-profile-table th,
-    .company-profile-table td {
-        display: block;
-        width: 100%;
-        padding: 10px 0;
-    }
-    
-    .company-profile-table th {
-        border-bottom: none;
-        padding-bottom: 0;
-    }
-}
-
-@media (max-width: 480px) {
-    /* 画像サイズのさらなる最適化 */
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-    
-    /* テキストサイズの調整 */
-    body {
-        font-size: 15px;
-    }
-    
-    h1, h2, h3, h4, h5, h6 {
+    h1, h2, h3 {
         line-height: 1.4;
     }
     
@@ -2665,4 +1763,203 @@ footer nav.footer-nav ul li a:hover {
     .philosophy-section p {
         line-height: 1.5;
     }
+}
+
+/* スクロールダウン矢印の調整 */
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 300;
+    opacity: 0.7;
+    animation: bounce 2s infinite;
+    z-index: 10;
+    width: 30px;
+    height: 60px;
+}
+
+.scroll-down span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.scroll-down svg {
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: 0 auto;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-5px) translateX(-50%);
+    }
+}
+
+/* 沿革の縦長問題修正 */
+.company-history-container .timeline {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.company-history-container .timeline-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 20px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.company-history-container .timeline-date {
+    font-weight: bold;
+    color: #004C4F;
+    position: relative;
+}
+
+.company-history-container .timeline-content {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.company-history-container .timeline-content h3 {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+/* プロダクトページ完全固定 */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.products-list-section, 
+.product-detail-section {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.product-item {
+    width: 100%;
+    height: auto;
+}
+
+/* モバイル対応調整 */
+@media (max-width: 768px) {
+    /* スクロールダウン矢印モバイル調整 */
+    .scroll-down {
+        bottom: 20px;
+    }
+    
+    /* 沿革のモバイル表示 */
+    .company-history-container .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+    
+    .company-history-container .timeline-date {
+        margin-bottom: 5px;
+    }
+    
+    .company-history-container .timeline-content {
+        padding-left: 0;
+    }
+    
+    .company-history-container .timeline-content h3 {
+        font-size: 16px;
+    }
+    
+    .company-history-container .timeline-content p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    /* プロダクトページ修正 */
+    .products-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+    
+    .product-item {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    /* スクロールダウン矢印さらに小さい画面用 */
+    .scroll-down {
+        bottom: 15px;
+        font-size: 12px;
+    }
+    
+    .scroll-down svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    /* 沿革のさらに小さい画面用 */
+    .company-history-container .timeline-item {
+        margin-bottom: 20px;
+    }
+    
+    .company-history-container .timeline-content h3 {
+        font-size: 15px;
+    }
+    
+    .company-history-container .timeline-date {
+        font-size: 14px;
+    }
+    
+    /* プロダクトグリッドさらに小さい画面用 */
+    .products-grid {
+        gap: 20px;
+    }
+    
+    .product-card {
+        overflow: hidden;
+    }
+}
+
+/* プロダクトページのスワイプ防止 - さらなる対策 */
+.products-header,
+.products-list-section,
+.product-detail-section,
+.product-cta-section {
+    overflow-x: hidden;
+    width: 100vw;
+    max-width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    left: 0;
+    right: 0;
+}
+
+.products-header-inner,
+.section-inner {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
 }
