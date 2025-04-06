@@ -542,4 +542,123 @@ header nav ul li a.active {
         font-size: 14px;
         padding: 12px 20px;
     }
-} 
+}
+
+/* モバイル表示の最適化 */
+@media (max-width: 768px) {
+    /* ヘッダー部分の調整 */
+    .philosophy-header {
+        padding: 80px 0 40px;
+    }
+    
+    .philosophy-title {
+        font-size: 32px;
+    }
+    
+    .philosophy-subtitle {
+        font-size: 16px;
+    }
+    
+    .philosophy-description {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    /* 各セクションの調整 */
+    .philosophy-section {
+        padding: 60px 0;
+    }
+    
+    .philosophy-content {
+        padding: 0 20px;
+    }
+    
+    .philosophy-main-copy h3 {
+        font-size: 24px;
+    }
+    
+    .jp-copy {
+        font-size: 16px;
+    }
+    
+    /* フレックスボックスの調整 */
+    .philosophy-block {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .philosophy-block.reverse {
+        flex-direction: column;
+    }
+    
+    .philosophy-text {
+        flex: 1;
+        max-width: 100%;
+        order: 2;
+    }
+    
+    .philosophy-image {
+        flex: 1;
+        min-width: auto;
+        max-width: 100%;
+        padding: 0;
+        order: 1;
+    }
+    
+    .philosophy-text p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    .philosophy-text p.highlight {
+        font-size: 20px;
+    }
+    
+    /* 横スクロール防止 */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+}
+
+/* スマホ表示のさらなる最適化 */
+@media (max-width: 480px) {
+    .philosophy-title {
+        font-size: 28px;
+    }
+    
+    .philosophy-subtitle {
+        font-size: 15px;
+    }
+    
+    .philosophy-description {
+        font-size: 15px;
+    }
+    
+    .philosophy-main-copy h3 {
+        font-size: 22px;
+    }
+    
+    .jp-copy {
+        font-size: 15px;
+    }
+    
+    .philosophy-text p {
+        font-size: 15px;
+    }
+    
+    .philosophy-text p.highlight {
+        font-size: 18px;
+    }
+    
+    /* CTAセクションの調整 */
+    .cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .cta-buttons a {
+        width: 100%;
+        text-align: center;
+    }
+}
