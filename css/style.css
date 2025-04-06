@@ -552,6 +552,130 @@ header nav.global-nav ul li a .nav-ja {
     font-weight: 500;
 }
 
+/* サービス */
+.service-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.service-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.service-number {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 60px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.05);
+    z-index: 1;
+}
+
+.service-image {
+    width: 30%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.service-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.service-info {
+    width: 70%;
+    padding: 30px 30px 30px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.service-info h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.service-info p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.service-actions {
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .service-item {
+        flex-direction: column;
+    }
+    
+    .service-number {
+        top: 10px;
+        left: 10px;
+        font-size: 40px;
+    }
+    
+    .service-image {
+        width: 100%;
+        padding: 30px 20px 0;
+    }
+    
+    .service-image img {
+        max-width: 150px;
+    }
+    
+    .service-info {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .service-info h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .service-info p {
+        font-size: 14px;
+        margin-bottom: 15px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        line-clamp: 3;
+        box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 4.5em;
+    }
+    
+    .service-actions {
+        margin-top: 10px;
+    }
+    
+    .service-actions .btn-product {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}
+
 /* プロダクト */
 .product-grid {
     display: grid;
@@ -673,84 +797,6 @@ header nav.global-nav ul li a .nav-ja {
     color: #999;
     transform: none;
     box-shadow: none;
-}
-
-/* サービス */
-.service-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-}
-
-.service-item {
-    width: calc(33.33% - 27px);
-    position: relative;
-    opacity: 0;
-    transform: translateY(30px);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.service-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition: var(--transition);
-}
-
-.service-number {
-    font-size: 50px;
-    font-weight: 700;
-    color: var(--main-color);
-    opacity: 0.1;
-    position: absolute;
-    top: -30px;
-    left: -10px;
-}
-
-.service-image {
-    margin-bottom: 20px;
-    overflow: hidden;
-}
-
-.service-image img {
-    transition: var(--transition);
-}
-
-.service-item:hover .service-image img {
-    transform: scale(1.05);
-}
-
-.service-info {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    height: 100%;
-}
-
-.service-info h3 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.service-info p {
-    font-size: 17px;
-    line-height: 1.8;
-    margin-bottom: 20px;
-    flex-grow: 1;
-    font-weight: 400;
-}
-
-.service-actions {
-    margin-top: auto;
-}
-
-.service-actions .btn-product {
-    font-size: 14px;
-    padding: 10px 20px;
-    width: 100%;
-    text-align: center;
 }
 
 /* 会社情報 */
@@ -936,7 +982,7 @@ footer nav.footer-nav ul li a:hover {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.3);
         z-index: 998;
     }
     
@@ -1689,7 +1735,7 @@ footer nav.footer-nav ul li a:hover {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.3);
         z-index: 998;
     }
     
@@ -2008,7 +2054,7 @@ footer nav.footer-nav ul li a:hover {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.3);
         z-index: 998;
     }
     
@@ -2327,7 +2373,7 @@ footer nav.footer-nav ul li a:hover {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.3);
         z-index: 998;
     }
     
