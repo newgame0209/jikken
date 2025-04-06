@@ -558,7 +558,7 @@ header nav.global-nav ul li a .nav-ja {
     flex-direction: column;
     gap: 40px;
     margin-top: 30px;
-    width: 100%;
+    padding: 0;
 }
 
 .service-item {
@@ -570,7 +570,6 @@ header nav.global-nav ul li a .nav-ja {
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     position: relative;
-    width: 100%;
 }
 
 .service-number {
@@ -618,14 +617,6 @@ header nav.global-nav ul li a .nav-ja {
     line-height: 1.6;
     margin-bottom: 20px;
     color: #666;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    line-clamp: 2;
-    box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-height: 3em;
 }
 
 .service-actions {
@@ -633,35 +624,12 @@ header nav.global-nav ul li a .nav-ja {
 }
 
 @media (max-width: 768px) {
-    .section-inner {
-        padding: 0;
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    .services .section-header {
-        padding: 0 15px;
-    }
-    
-    .services .section-content {
-        width: 100%;
-        padding: 0;
-    }
-    
-    .service-list {
-        width: 100%;
-        padding: 0;
-        margin: 20px 0;
-        gap: 20px;
-    }
-    
     .service-item {
         flex-direction: column;
-        margin-bottom: 0;
+        margin-bottom: 30px;
         width: 100%;
-        border-radius: 0;
-        box-shadow: none;
-        border-bottom: 1px solid #eee;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     
     .service-number {
@@ -672,9 +640,10 @@ header nav.global-nav ul li a .nav-ja {
     
     .service-image {
         width: 100%;
-        padding: 30px 20px 10px;
+        padding: 20px 20px 10px;
         display: flex;
         justify-content: center;
+        box-sizing: border-box;
     }
     
     .service-image img {
@@ -684,8 +653,9 @@ header nav.global-nav ul li a .nav-ja {
     
     .service-info {
         width: 100%;
-        padding: 15px 20px 20px;
+        padding: 10px 20px 20px;
         text-align: center;
+        box-sizing: border-box;
     }
     
     .service-info h3 {
@@ -697,27 +667,571 @@ header nav.global-nav ul li a .nav-ja {
         font-size: 14px;
         margin-bottom: 10px;
         line-height: 1.4;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        line-clamp: 2;
-        box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-height: 3em;
     }
     
     .service-actions {
         margin-top: 5px;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
+    }
+    
+    .service-list {
+        width: 100%;
+        padding: 0 15px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    
+    .services.section .section-inner {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .services.section .section-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .services.section {
+        padding: 50px 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .section-inner {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+}
+
+/* プロダクト */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.product-card-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-card-image img {
+    transform: scale(1.05);
+}
+
+.product-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--main-color);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 1;
+}
+
+.product-card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-card-content h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.product-card-catchphrase {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--main-color);
+    margin-bottom: 15px;
+}
+
+.product-card-description {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--dark-gray);
+    margin-bottom: 20px;
+    flex-grow: 1;
+    font-weight: 400;
+}
+
+.product-card-actions {
+    margin-top: auto;
+}
+
+.btn-product {
+    display: inline-block;
+    padding: 12px 25px;
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    background-color: transparent;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-product:hover {
+    background-color: var(--main-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(13, 110, 110, 0.2);
+}
+
+.btn-disabled {
+    background-color: #e0e0e0;
+    color: #999;
+    border-color: #e0e0e0;
+    cursor: not-allowed;
+}
+
+.btn-disabled:hover {
+    background-color: #e0e0e0;
+    color: #999;
+    transform: none;
+    box-shadow: none;
+}
+
+/* 会社情報 */
+.company-info {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.company-info dl {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid #eee;
+}
+
+.company-info dt {
+    width: 30%;
+    padding: 20px 0;
+    font-weight: 500;
+    border-bottom: 1px solid #eee;
+}
+
+.company-info dd {
+    width: 70%;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* フッター */
+footer {
+    background-color: #f8f9ff;
+    padding: 60px 0 40px;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.footer-logo {
+    margin-bottom: 30px;
+}
+
+/* フッターナビゲーション - すべてのパターンに対応 */
+footer nav ul,
+footer .footer-nav ul,
+footer nav.footer-nav ul {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    list-style: none;
+    padding: 0;
+}
+
+footer nav ul li,
+footer .footer-nav ul li,
+footer nav.footer-nav ul li {
+    margin: 0 15px;
+    position: relative;
+}
+
+footer nav ul li a,
+footer .footer-nav ul li a,
+footer nav.footer-nav ul li a {
+    transition: var(--transition);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+}
+
+footer nav ul li a:hover,
+footer .footer-nav ul li a:hover,
+footer nav.footer-nav ul li a:hover {
+    color: var(--main-color);
+}
+
+.copyright {
+    font-size: 12px;
+    color: var(--dark-gray);
+    font-weight: 400;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 1024px) {
+    .visual-text h1 {
+        font-size: 36px;
+    }
+    
+    .service-item {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    /* 画像サイズの最適化 */
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    /* セクション間の余白調整 */
+    .section {
+        padding: 50px 0;
+    }
+    
+    /* テキストサイズの調整 */
+    p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+    
+    h1, h2, h3 {
+        line-height: 1.4;
+    }
+    
+    /* ボタンサイズの調整 */
+    .btn-start, .btn-product {
+        padding: 12px 25px;
+        font-size: 15px;
+    }
+    
+    /* ハンバーガーメニューの表示 */
+    .hamburger-menu {
+        display: block;
+        z-index: 1000;
+    }
+    
+    /* ナビゲーションメニューのスタイル調整 */
+    header nav, 
+    header .global-nav, 
+    header nav.global-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: white;
+        padding: 80px 20px 20px;
+        transition: all 0.5s;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        overflow-y: auto;
+    }
+    
+    header nav.active, 
+    header .global-nav.active,
+    header nav.global-nav.active {
+        right: 0;
+    }
+    
+    header nav ul, 
+    header .global-nav ul,
+    header nav.global-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    header nav ul li, 
+    header .global-nav ul li,
+    header nav.global-nav ul li {
+        margin: 15px 0;
         width: 100%;
     }
     
-    .service-actions .btn-product {
+    header nav ul li a, 
+    header .global-nav ul li a,
+    header nav.global-nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    /* オーバーレイのスタイル */
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 998;
+    }
+    
+    .overlay.active {
+        display: block;
+    }
+    
+    /* メインビジュアルの調整 */
+    .main-visual-content {
+        flex-direction: column-reverse;
+        padding: 20px;
+    }
+    
+    .visual-text, 
+    .visual-illustration {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .visual-text h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+    
+    .visual-illustration {
+        margin-bottom: 30px;
+        margin-top: 60px;
+    }
+    
+    .main-illustration {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    
+    /* セクション内の余白調整 */
+    .section-inner {
+        padding: 0 20px;
+    }
+    
+    /* テキストとイラストのブロック調整 */
+    .text-illustration-block {
+        flex-direction: column;
+    }
+    
+    .text-illustration-block .text,
+    .text-illustration-block .illustration {
+        width: 100%;
+    }
+    
+    /* スクロールダウン表示の調整 */
+    .scroll-down {
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    /* アクションボタンの調整 */
+    .action-button {
+        margin-bottom: 60px;
+    }
+    
+    /* メンバーリストの調整 */
+    .members-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .member-card {
+        width: calc(50% - 10px);
+        margin-bottom: 20px;
+    }
+    
+    /* 会社情報テーブルの調整 */
+    .company-info dt,
+    .company-info dd {
+        width: 100%;
+        padding: 15px 0;
+    }
+    
+    .company-info dt {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    
+    /* セクションヘッダーの調整 */
+    .section-header h2 .en {
+        font-size: 26px;
+    }
+    
+    /* フッターナビゲーションの調整 */
+    footer nav ul,
+    footer .footer-nav ul,
+    footer nav.footer-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    footer nav ul li,
+    footer .footer-nav ul li,
+    footer nav.footer-nav ul li {
+        margin: 0 10px 10px;
+    }
+    
+    /* プロダクトページの調整 */
+    .product-card, 
+    .service-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .product-card-image img, 
+    .service-card-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    
+    .product-detail-section .product-detail-content {
+        flex-direction: column;
+    }
+    
+    .product-detail-section .product-detail-image,
+    .product-detail-section .product-detail-info {
+        width: 100%;
+    }
+    
+    /* 会社情報ページの調整 */
+    .company-profile-table {
+        width: 100%;
+    }
+    
+    .company-profile-table th,
+    .company-profile-table td {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    .company-profile-table th {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    
+    /* タイムラインの調整 */
+    .timeline-item {
+        flex-direction: column;
+    }
+    
+    .timeline-date,
+    .timeline-content {
+        width: 100%;
+    }
+    
+    /* お問い合わせフォームの調整 */
+    .contact-form-group {
+        margin-bottom: 20px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+    }
+    
+    /* アバウトページの調整 */
+    .philosophy-header-inner,
+    .about-section-inner {
+        padding: 0 20px;
+    }
+    
+    .philosophy-header-title {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+    
+    .philosophy-header-subtitle {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+    
+    .philosophy-content {
+        flex-direction: column;
+    }
+    
+    .philosophy-text,
+    .philosophy-image {
+        width: 100%;
+    }
+    
+    .philosophy-text {
+        margin-bottom: 30px;
+    }
+    
+    .value-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .value-card-inner {
+        padding: 20px;
+    }
+    
+    .value-card-number {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    
+    .value-card-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .value-card-description {
         font-size: 14px;
-        padding: 8px 20px;
-        min-width: 180px;
-        display: inline-block;
     }
 }
 

@@ -158,7 +158,7 @@ function initSmoothScroll() {
             const headerHeight = document.querySelector('header').offsetHeight;
             const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
             
-            // ハンバーガーメニューを閉じる
+            // メニューを閉じる
             const hamburger = document.querySelector('.hamburger-menu');
             const nav = document.querySelector('header nav');
             const overlay = document.querySelector('.overlay');
@@ -171,6 +171,7 @@ function initSmoothScroll() {
                 body.classList.remove('no-scroll');
             }
             
+            // スムーススクロール
             window.scrollTo({
                 top: targetPosition,
                 behavior: 'smooth'
