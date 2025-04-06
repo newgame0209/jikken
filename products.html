@@ -15,9 +15,15 @@
         /* スマホ表示で左右スクロールを防止するための追加スタイル */
         @media (max-width: 768px) {
             html, body {
-                overflow-x: hidden;
-                width: 100%;
+                overflow-x: hidden !important;
+                width: 100% !important;
                 position: relative;
+                max-width: 100vw !important;
+            }
+            
+            body * {
+                max-width: 100vw !important;
+                box-sizing: border-box !important;
             }
             
             .products-grid {
@@ -25,17 +31,22 @@
                 grid-template-columns: 1fr;
                 gap: 20px;
                 width: 100%;
-                overflow: hidden;
+                padding: 0;
+                margin: 0;
+                overflow-x: hidden;
             }
             
             .product-card-content {
                 width: 100%;
                 box-sizing: border-box;
+                padding: 15px;
             }
             
             .feature-tag {
                 display: inline-block;
                 margin-bottom: 5px;
+                font-size: 11px;
+                padding: 3px 6px;
             }
             
             .product-detail-main {
@@ -65,6 +76,41 @@
                 display: block;
                 overflow-x: auto;
                 white-space: normal;
+            }
+            
+            .section-inner {
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+            
+            .products-header-content,
+            .products-title-container,
+            .products-header-image,
+            .product-item,
+            .product-card,
+            .product-card-image,
+            .product-features,
+            .product-card-actions,
+            .product-detail-content,
+            .product-detail-header,
+            .product-detail-description,
+            .product-testimonials,
+            .testimonial-items,
+            .testimonial-item,
+            .cta-container,
+            .cta-buttons {
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+                box-sizing: border-box !important;
+            }
+            
+            img {
+                max-width: 100% !important;
+                height: auto !important;
             }
         }
     </style>

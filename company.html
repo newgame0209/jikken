@@ -317,6 +317,8 @@
         padding-left: 25px; /* 左側のスペースを増やす */
         width: 100%;
         box-sizing: border-box;
+        margin: 0 auto;
+        max-width: 95%;
     }
     
     .company-history-section .timeline-item {
@@ -325,6 +327,10 @@
         padding-bottom: 10px;
         border-left: 2px solid #e0e0e0;
         padding-left: 20px;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
     }
     
     .company-history-section .timeline-item::before {
@@ -343,6 +349,12 @@
         color: #004C4F;
         margin-bottom: 5px;
         font-size: 16px;
+        width: 100%;
+    }
+    
+    .company-history-section .timeline-content {
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .company-history-section .timeline-content h3 {
@@ -356,20 +368,38 @@
         line-height: 1.5;
         margin: 0;
     }
+    
+    .company-history-section .section-inner {
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
 
 /* タブレット表示での最適化 */
 @media (min-width: 768px) and (max-width: 1024px) {
     .company-history-section .timeline {
         padding-left: 30px;
+        width: 90%;
+        margin: 0 auto;
     }
     
     .company-history-section .timeline-item {
         margin-bottom: 30px;
+        display: flex;
+        align-items: flex-start;
     }
     
     .company-history-section .timeline-date {
         font-size: 18px;
+        width: 30%;
+        box-sizing: border-box;
+        padding-right: 15px;
+    }
+    
+    .company-history-section .timeline-content {
+        width: 70%;
     }
     
     .company-history-section .timeline-content h3 {

@@ -54,46 +54,48 @@ function initHamburgerMenu() {
             const href = link.getAttribute('href');
             
             // 外部リンクかどうかチェック
-            const isExternal = href.startsWith('http') || !href.includes('#');
+            const isExternal = href.startsWith('http') || (!href.includes('#') && href.includes('.html'));
             
             // 現在のページのパス名を取得
             const currentPath = window.location.pathname;
+            const currentPage = currentPath.split('/').pop() || 'index.html';
             
             // 同じページ内のアンカーリンクかチェック
             // 例: href="#about" または href="index.html#about" で現在index.htmlにいる場合
             const isCurrentPageAnchor = 
                 (href.startsWith('#')) || 
-                (currentPath.includes(href.split('#')[0]) && href.includes('#'));
+                (href.split('#')[0] === currentPage) ||
+                (currentPage.includes(href.split('#')[0]) && href.includes('#'));
             
             // メニューが開いている場合は閉じる
             if (nav.classList.contains('active')) {
-                // 同じページ内のアンカーリンクならページ遷移前にメニューを閉じる
-                // (リンククリックでは自動的に閉じないため)
                 toggleMenu();
                 
                 // 同じページ内のアンカーリンクの場合は、スムーススクロールを自前で実装
-                if (isCurrentPageAnchor) {
+                if (isCurrentPageAnchor && href.includes('#')) {
                     e.preventDefault(); // デフォルトのリンク動作をキャンセル
                     
                     // ターゲット要素のIDを取得
                     const targetId = href.includes('#') ? href.split('#')[1] : href.substring(1);
                     
-                    // ターゲット要素を検索
-                    const targetElement = document.getElementById(targetId);
-                    
-                    // ターゲット要素が存在する場合はスクロール
-                    if (targetElement) {
-                        // ヘッダーの高さを取得
-                        const headerHeight = document.querySelector('header').offsetHeight;
+                    // ターゲット要素が存在する場合は、存在チェック
+                    if (targetId) {
+                        const targetElement = document.getElementById(targetId);
                         
-                        // ターゲット要素の位置を計算
-                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                        
-                        // スムーススクロール
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
+                        // ターゲット要素が存在する場合はスクロール
+                        if (targetElement) {
+                            // ヘッダーの高さを取得
+                            const headerHeight = document.querySelector('header').offsetHeight;
+                            
+                            // ターゲット要素の位置を計算
+                            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                            
+                            // スムーススクロール
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
                     }
                 }
             }
@@ -202,19 +204,64 @@ function initSmoothScroll() {
             
             const targetId = this.getAttribute('href');
             
-            const targetElement = document.querySelector(targetId);
-            if (!targetElement) return;
+            if (targetId && targetId !== '#') {
+                // #以降の部分を取得
+                const idPart = targetId.substring(1);
+                const targetElement = document.getElementById(idPart);
+                
+                if (!targetElement) return;
+                
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // TOPページ内リンクの場合、スムーススクロール後にメニューを閉じる
+                if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
+                    const hamburger = document.querySelector('.hamburger-menu');
+                    const nav = document.querySelector('header nav');
+                    if (nav.classList.contains('active')) {
+                        hamburger.classList.remove('active');
+                        nav.classList.remove('active');
+                        document.querySelector('.overlay').classList.remove('active');
+                        document.body.classList.remove('no-scroll');
+                    }
+                }
+            }
+        });
+    });
+    
+    // index.html#services のようなページ間リンクにも対応
+    document.querySelectorAll('a[href*=".html#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            const pageAndAnchor = href.split('#');
             
-            const headerHeight = document.querySelector('header').offsetHeight;
-            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            // 現在のページのパス名が含まれている場合（同じページへのリンク）
+            const currentPath = window.location.pathname;
+            const currentPage = currentPath.split('/').pop() || 'index.html';
             
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-            
-            // TOPページ内リンクの場合、スムーススクロール後にメニューを閉じる
-            if (targetId.startsWith('#') && window.location.pathname.endsWith('index.html')) {
+            // 同じページ内のリンクなら、スムーススクロール
+            if (pageAndAnchor[0] === currentPage || currentPath.endsWith(pageAndAnchor[0])) {
+                e.preventDefault();
+                
+                const targetId = pageAndAnchor[1];
+                const targetElement = document.getElementById(targetId);
+                
+                if (!targetElement) return;
+                
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // メニューが開いている場合は閉じる
                 const hamburger = document.querySelector('.hamburger-menu');
                 const nav = document.querySelector('header nav');
                 if (nav.classList.contains('active')) {
