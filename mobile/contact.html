@@ -60,7 +60,9 @@
                     <p class="section-description">下記フォームに必要事項をご入力の上、送信ボタンを押してください。</p>
                 </div>
                 
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" action="https://formsubmit.co/support@jikken.site" method="POST">
+                    <input type="hidden" name="_next" value="https://jikken.site/thanks.html">
+                    <input type="hidden" name="_subject" value="JIKKENサイトからのお問い合わせ（モバイル）">
                     <div class="form-group">
                         <label for="name">お名前 <span class="required">*</span></label>
                         <input type="text" id="name" name="name" required>
