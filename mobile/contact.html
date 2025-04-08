@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お問い合わせ | JIKKEN Inc. | 暮らしをAIの力でちょっとアップデートする。</title>
-    <meta name="description" content="JIKKEN Inc.へのお問い合わせページです。サービスに関するご質問やお見積もり依頼など、お気軽にご連絡ください。">
+    <meta name="description" content="JIKKENへのお問い合わせはこちらから。AIを活用したプロダクトやサービスについてのご質問、ご相談をお待ちしております。">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/mobile-style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,36 +30,11 @@
             </div>
             <nav>
                 <ul>
-                    <li>
-                        <a href="about.html">
-                            <span class="en">About</span>
-                            <span class="ja">私たちについて</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="products.html">
-                            <span class="en">AI Product</span>
-                            <span class="ja">プロダクト</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="services.html">
-                            <span class="en">Services</span>
-                            <span class="ja">サービス案内</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="company.html">
-                            <span class="en">Company Info</span>
-                            <span class="ja">会社情報</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="contact.html">
-                            <span class="en">Contact</span>
-                            <span class="ja">お問い合わせ</span>
-                        </a>
-                    </li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="products.html">AI Product</a></li>
+                    <li><a href="services.html">Service</a></li>
+                    <li><a href="company.html">Company</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -72,7 +47,7 @@
                 <h1 class="page-title">Contact</h1>
                 <p class="page-description">お問い合わせ</p>
                 <p class="page-subtitle">
-                    サービスに関するご質問、お見積もり依頼、協業のご相談など、お気軽にお問い合わせください。
+                    AIを活用したサービスについてのご質問や、お見積りのご依頼など、お気軽にお問い合わせください。
                 </p>
             </div>
         </section>
@@ -82,6 +57,7 @@
             <div class="section-inner">
                 <div class="section-header">
                     <h2 class="section-title">お問い合わせフォーム</h2>
+                    <p class="section-description">下記フォームに必要事項をご入力の上、送信ボタンを押してください。</p>
                 </div>
                 
                 <form class="contact-form" id="contactForm">
@@ -91,13 +67,13 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">メールアドレス <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="company">会社名・団体名</label>
+                        <input type="text" id="company" name="company">
                     </div>
                     
                     <div class="form-group">
-                        <label for="company">会社名</label>
-                        <input type="text" id="company" name="company">
+                        <label for="email">メールアドレス <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
                     </div>
                     
                     <div class="form-group">
@@ -110,28 +86,28 @@
                         <select id="inquiry_type" name="inquiry_type" required>
                             <option value="" disabled selected>選択してください</option>
                             <option value="service">サービスについて</option>
-                            <option value="quote">お見積もり依頼</option>
-                            <option value="partnership">協業・提携のご相談</option>
-                            <option value="career">採用について</option>
+                            <option value="product">プロダクトについて</option>
+                            <option value="partnership">業務提携について</option>
+                            <option value="estimate">お見積りのご依頼</option>
                             <option value="other">その他</option>
                         </select>
                     </div>
                     
                     <div class="form-group">
                         <label for="message">お問い合わせ内容 <span class="required">*</span></label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <textarea id="message" name="message" rows="6" required></textarea>
                     </div>
                     
                     <div class="form-group privacy-policy">
                         <label class="checkbox-container">
                             <input type="checkbox" id="privacy_agree" name="privacy_agree" required>
-                            <span class="checkmark"></span>
-                            <span class="privacy-text"><a href="#" target="_blank">プライバシーポリシー</a>に同意します</span>
+                            <span class="privacy-text">個人情報保護方針に同意する <span class="required">*</span></span>
                         </label>
+                        <a href="#" class="privacy-link">プライバシーポリシーを読む</a>
                     </div>
                     
                     <div class="form-button">
-                        <button type="submit" class="btn btn-submit">送信する</button>
+                        <button type="submit" class="btn-submit">送信する</button>
                     </div>
                 </form>
             </div>
@@ -148,12 +124,12 @@
                     <div class="contact-info-block">
                         <div class="contact-info-icon">
                             <svg width="40" height="40" viewBox="0 0 40 40">
-                                <path d="M32 6H8C6.9 6 6 6.9 6 8V32C6 33.1 6.9 34 8 34H32C33.1 34 34 33.1 34 32V8C34 6.9 33.1 6 32 6ZM30 8L20 18L10 8H30ZM8 32V10L20 20L32 10V32H8Z" fill="#004C4F"/>
+                                <path d="M35 5H5C3.89 5 3 5.89 3 7V33C3 34.11 3.89 35 5 35H35C36.11 35 37 34.11 37 33V7C37 5.89 36.11 5 35 5ZM35 33H5V13H35V33ZM35 9H5V7H35V9ZM20 25C22.21 25 24 23.21 24 21C24 18.79 22.21 17 20 17C17.79 17 16 18.79 16 21C16 23.21 17.79 25 20 25ZM28 31C28 28.34 22.67 27 20 27C17.33 27 12 28.34 12 31V32H28V31Z" fill="#004C4F"/>
                             </svg>
                         </div>
                         <div class="contact-info-text">
                             <h3>メールでのお問い合わせ</h3>
-                            <p><a href="mailto:info@jikken-inc.com">info@jikken-inc.com</a></p>
+                            <p><a href="mailto:support@jikken.site">support@jikken.site</a></p>
                             <p>営業時間：平日10:00〜18:00</p>
                         </div>
                     </div>
@@ -165,8 +141,8 @@
                         </div>
                         <div class="contact-info-text">
                             <h3>所在地</h3>
-                            <p>〒550-0015</p>
-                            <p>大阪市西区南堀江1-1-1</p>
+                            <p>〒542-0081</p>
+                            <p>大阪府大阪市中央区南船場1丁目10－12ラインビルド南船場1004号</p>
                         </div>
                     </div>
                     <div class="contact-info-block">
@@ -178,7 +154,7 @@
                         <div class="contact-info-text">
                             <h3>SNS</h3>
                             <div class="social-links">
-                                <a href="#" target="_blank" class="social-link">Twitter</a>
+                                <a href="https://x.com/AI_mirai_naka" target="_blank" class="social-link">Twitter</a>
                                 <a href="#" target="_blank" class="social-link">LinkedIn</a>
                                 <a href="#" target="_blank" class="social-link">Instagram</a>
                             </div>
@@ -198,41 +174,41 @@
                 <div class="faq-list">
                     <div class="faq-item">
                         <div class="faq-question">
-                            <h3>サービスの利用料金はいくらですか？</h3>
+                            <h3>サービス料金はどのように決まりますか？</h3>
                             <span class="faq-toggle">+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>サービスによって料金体系が異なります。一部のAIツールは無料でご利用いただけますが、高度な機能や法人向けサービスは有料となります。詳細はお問い合わせください。</p>
+                            <p>サービス料金はプロジェクトの規模や内容によって異なります。MVPの開発では、機能の複雑さや開発期間などを考慮して見積もりを作成します。まずはお問い合わせフォームよりご相談ください。</p>
                         </div>
                     </div>
                     
                     <div class="faq-item">
                         <div class="faq-question">
-                            <h3>AIツールを自社業務に導入する際のサポートはありますか？</h3>
+                            <h3>開発期間はどのくらいかかりますか？</h3>
                             <span class="faq-toggle">+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>はい、企業様向けに導入支援やカスタマイズ、社員トレーニングなどのサポートを提供しています。ご要望に応じたプランをご用意いたしますので、お気軽にご相談ください。</p>
+                            <p>MVPの開発は通常2週間〜1ヶ月程度で完了します。ただし、プロジェクトの複雑さや要件によって異なりますので、詳細はお打ち合わせの上で決定させていただきます。</p>
                         </div>
                     </div>
                     
                     <div class="faq-item">
                         <div class="faq-question">
-                            <h3>生成AIを使う際のデータセキュリティは安全ですか？</h3>
+                            <h3>AIプロダクトの開発実績はありますか？</h3>
                             <span class="faq-toggle">+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>私たちはデータセキュリティを最優先事項として取り組んでいます。ユーザーデータは暗号化され、厳格なセキュリティポリシーに基づいて管理されます。また、必要に応じてオンプレミス型の導入も可能です。詳細なセキュリティ対策についてはお問い合わせください。</p>
+                            <p>はい、生成AIを活用したプロダクト「しゃべるノート」をはじめ、複数のAIプロダクトを開発しています。詳細はプロダクトページをご覧ください。また、企業様向けのカスタムAIソリューションの開発実績もございます。</p>
                         </div>
                     </div>
                     
                     <div class="faq-item">
                         <div class="faq-question">
-                            <h3>カスタムAIの開発は可能ですか？</h3>
+                            <h3>どのような企業とお取引がありますか？</h3>
                             <span class="faq-toggle">+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>はい、お客様の業務やニーズに合わせたカスタムAIソリューションの開発を承っております。具体的な要件や予算に応じて最適な提案をいたしますので、まずはお問い合わせフォームよりご連絡ください。</p>
+                            <p>スタートアップから中小企業、大企業まで幅広くお取引させていただいております。特に新規事業開発やDX推進に取り組む企業様との協業が多いです。具体的な実績については、お問い合わせいただければ詳細をご案内いたします。</p>
                         </div>
                     </div>
                 </div>
@@ -264,6 +240,6 @@
     <!-- オーバーレイ -->
     <div class="overlay"></div>
 
-    <script src="js/mobile-script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html> 

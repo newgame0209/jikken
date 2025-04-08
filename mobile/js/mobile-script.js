@@ -19,32 +19,55 @@ document.addEventListener('DOMContentLoaded', function() {
     const overlay = document.querySelector('.overlay');
     const navLinks = document.querySelectorAll('nav ul li a');
 
-    if (hamburgerMenu && nav && overlay) {
+    if (hamburgerMenu && nav) {
         hamburgerMenu.addEventListener('click', function() {
             hamburgerMenu.classList.toggle('active');
             nav.classList.toggle('active');
-            overlay.classList.toggle('active');
+            if (overlay) overlay.classList.toggle('active');
             document.body.classList.toggle('no-scroll');
         });
 
         // オーバーレイクリックでメニューを閉じる
-        overlay.addEventListener('click', function() {
-            hamburgerMenu.classList.remove('active');
-            nav.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.classList.remove('no-scroll');
-        });
+        if (overlay) {
+            overlay.addEventListener('click', function() {
+                hamburgerMenu.classList.remove('active');
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        }
 
         // ナビゲーションリンククリックでメニューを閉じる
         navLinks.forEach(function(link) {
             link.addEventListener('click', function() {
                 hamburgerMenu.classList.remove('active');
                 nav.classList.remove('active');
-                overlay.classList.remove('active');
+                if (overlay) overlay.classList.remove('active');
                 document.body.classList.remove('no-scroll');
             });
         });
     }
+
+    // FAQのトグル機能
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(function(item) {
+        const question = item.querySelector('.faq-question');
+        
+        if (question) {
+            question.addEventListener('click', function() {
+                // すべてのアイテムから'active'クラスを削除
+                faqItems.forEach(function(otherItem) {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // クリックされたアイテムの'active'クラスをトグル
+                item.classList.toggle('active');
+            });
+        }
+    });
 
     // スムーズスクロール
     const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');

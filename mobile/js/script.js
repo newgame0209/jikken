@@ -51,22 +51,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // FAQのトグル機能
     const faqItems = document.querySelectorAll('.faq-item');
     
-    faqItems.forEach(function(item) {
+    faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
         
-        if (question) {
-            question.addEventListener('click', function() {
-                // すべてのアイテムから'active'クラスを削除
-                faqItems.forEach(function(otherItem) {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-                
-                // クリックされたアイテムの'active'クラスをトグル
-                item.classList.toggle('active');
+        question.addEventListener('click', () => {
+            // 他のアイテムを閉じる
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
             });
-        }
+            
+            // クリックされたアイテムをトグル
+            item.classList.toggle('active');
+        });
     });
 
     // スムーズスクロール
