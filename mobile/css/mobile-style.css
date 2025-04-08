@@ -225,192 +225,73 @@ nav ul li a .ja {
 /* セクション共通 */
 .section {
     padding: 40px 0;
-    margin-bottom: 20px;
 }
 
 .section-inner {
     padding: 0 20px;
     max-width: 100%;
+    margin: 0 auto;
 }
 
 .section-header {
-    margin-bottom: 30px;
     text-align: center;
+    margin-bottom: 40px;
+    padding: 0 20px;
 }
 
-.section-title {
+.section-header h2 {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 15px;
-    color: var(--main-color);
+    line-height: 1.4;
+}
+
+.section-header h2 .en {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 26px;
+}
+
+.section-header h2 .ja {
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.7;
 }
 
 .section-description {
+    text-align: left;
+    padding: 0 20px;
+    margin-bottom: 30px;
+}
+
+.section-description p {
     font-size: 16px;
     line-height: 1.8;
-    margin-bottom: 30px;
-    color: #333;
+    margin-bottom: 20px;
 }
 
-/* サービスセクションの共通スタイル */
-.ai-product-section,
-.freelance-section,
-.mvp-section {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    padding: 30px 20px;
-}
-
-/* リスト項目のスタイル */
-.target-companies,
-.ai-products,
-.target-freelance,
-.tools-provided,
-.service-features,
-.development-flow {
-    margin-bottom: 30px;
-}
-
-.target-companies h3,
-.ai-products h3,
-.target-freelance h3,
-.tools-provided h3,
-.service-features h3,
-.development-flow h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.target-companies ul,
-.ai-products ul,
-.target-freelance ul,
-.tools-provided ul,
-.service-features ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.target-companies li,
-.ai-products li,
-.target-freelance li,
-.tools-provided li,
-.service-features li {
-    position: relative;
-    padding-left: 20px;
-    margin-bottom: 12px;
-    line-height: 1.6;
-    font-size: 15px;
-}
-
-.target-companies li::before,
-.ai-products li::before,
-.target-freelance li::before,
-.tools-provided li::before,
-.service-features li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--main-color);
-}
-
-/* 開発フローのスタイル */
-.development-flow ol {
-    counter-reset: flow-counter;
-    list-style: none;
-    padding-left: 0;
-}
-
-.development-flow li {
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 15px;
-    line-height: 1.6;
-    font-size: 15px;
-}
-
-.development-flow li::before {
-    content: counter(flow-counter);
-    counter-increment: flow-counter;
-    position: absolute;
-    left: 0;
-    width: 25px;
-    height: 25px;
-    background-color: var(--main-color);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-/* CTAセクションのスタイル */
-.cta-section {
-    background-color: var(--main-color);
-    color: white;
+.action-button {
     text-align: center;
-    padding: 40px 20px;
-    margin: 40px 0 0;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
-.cta-content h2 {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.cta-content p {
-    font-size: 16px;
-    margin-bottom: 25px;
-    line-height: 1.6;
-}
-
-.btn-primary {
+.btn-start {
     display: inline-block;
     padding: 15px 40px;
-    background-color: white;
-    color: var(--main-color);
-    text-decoration: none;
+    background-color: var(--main-color);
+    color: #fff;
     border-radius: 30px;
-    font-weight: 600;
+    font-weight: 500;
+    text-align: center;
     transition: all 0.3s ease;
+    border: 2px solid var(--main-color);
 }
 
-.btn-primary:hover {
-    background-color: #f0f0f0;
-    transform: translateY(-2px);
-}
-
-@media (min-width: 768px) {
-    .section-inner {
-        max-width: 720px;
-        margin: 0 auto;
-    }
-
-    .section-title {
-        font-size: 28px;
-    }
-
-    .ai-product-section,
-    .freelance-section,
-    .mvp-section {
-        margin: 30px;
-        padding: 40px 30px;
-    }
-
-    .target-companies li,
-    .ai-products li,
-    .target-freelance li,
-    .tools-provided li,
-    .service-features li,
-    .development-flow li {
-        font-size: 16px;
-    }
+.btn-start:hover {
+    background-color: #fff;
+    color: var(--main-color);
 }
 
 /* メインビジュアル */
@@ -851,6 +732,200 @@ footer {
     }
 }
 
+/* CTA セクション */
+.cta-section {
+    padding: 80px 0;
+    background-color: var(--main-color);
+    color: #fff;
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.cta-content h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.cta-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    margin-top: 40px;
+}
+
+.cta-buttons .btn-start {
+    background-color: #fff;
+    color: var(--main-color);
+    border: 2px solid #fff;
+}
+
+.cta-buttons .btn-start:hover {
+    background-color: transparent;
+    color: #fff;
+}
+
+/* プロダクトページ */
+.product-detail-section {
+    padding: 40px 0;
+    background-color: #fff;
+}
+
+.product-detail-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-detail-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.product-detail-catchphrase {
+    font-size: 16px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.product-detail-description {
+    margin-bottom: 30px;
+}
+
+.product-detail-description p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.product-detail-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-detail-image {
+    margin-bottom: 20px;
+}
+
+.product-detail-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-detail-text h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+.feature-list, .recommend-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.feature-list li, .recommend-list li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.product-action {
+    margin-top: 25px;
+    text-align: center;
+}
+
+/* 製品機能タグ */
+.product-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.feature-tag {
+    display: inline-block;
+    background-color: #E9F5F5;
+    color: var(--main-color);
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.products-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background-color: var(--main-color);
+    color: #fff;
+    border-color: var(--main-color);
+}
+
+.btn-detail {
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.btn-detail:hover {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.free-tag {
+    background-color: #7CD1BD;
+    margin-left: 5px;
+}
+
+@media (min-width: 768px) {
+    .product-detail-main {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 30px;
+    }
+    
+    .product-detail-image {
+        width: 45%;
+        margin-bottom: 0;
+    }
+    
+    .product-detail-text {
+        width: 55%;
+    }
+}
+
 /* 会社情報ページのスタイル */
 .company-profile-section {
     padding: 2rem 1rem;
@@ -1148,21 +1223,14 @@ footer {
     }
 }
 
+/* サービスセクションの改善 */
 .service-section {
-    padding: 60px 0;
-    background-color: var(--light-gray);
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.service-list {
-    margin-top: 40px;
-}
-
-.service-item {
-    background: #fff;
-    border-radius: 12px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+.service-section:last-child {
+    border-bottom: none;
 }
 
 .service-number {
@@ -1173,76 +1241,166 @@ footer {
     margin-bottom: 20px;
 }
 
-.service-info h3 {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: var(--text-color);
+.service-catchphrase {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--main-color);
+    margin: 10px 0 20px;
 }
 
-.service-info p {
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 20px;
-    color: var(--text-color);
+.service-image {
+    margin: 20px -20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
 }
 
-.service-actions {
-    margin-top: 30px;
-    text-align: center;
+.service-image img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-.service-actions .btn-product {
-    margin: 0 10px;
+.service-content {
+    padding: 20px 0;
 }
 
-/* 会社情報テーブルの改善 */
-.company-info dl {
-    border-top: 1px solid var(--border-color);
-    margin-top: 20px;
+.service-content h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 30px 0 15px;
+    color: var(--main-color);
 }
 
-.company-info dt,
-.company-info dd {
-    padding: 15px 0;
+.service-feature-list,
+.service-target-list,
+.service-flow-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.service-feature-list li,
+.service-target-list li {
+    position: relative;
+    padding: 10px 0 10px 25px;
     border-bottom: 1px solid var(--border-color);
 }
 
-.company-info dt {
+.service-feature-list li:before,
+.service-target-list li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: var(--main-color);
+    border-radius: 50%;
+}
+
+.service-flow-list {
+    counter-reset: flow-counter;
+}
+
+.service-flow-list li {
+    position: relative;
+    padding: 15px 0 15px 35px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.service-flow-list li:before {
+    counter-increment: flow-counter;
+    content: counter(flow-counter);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.flow-title {
+    display: block;
     font-weight: 500;
-    color: #333;
-    width: 100%;
-}
-
-.company-info dd {
-    margin-bottom: 10px;
-}
-
-.company-info dd ul {
-    list-style: disc;
-    padding-left: 20px;
-    margin-top: 5px;
-}
-
-.company-info dd ul li {
     margin-bottom: 5px;
+    color: var(--main-color);
 }
 
+.service-examples {
+    margin: 30px 0;
+}
+
+.example-item {
+    background: #f8f8f8;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.example-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.example-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.example-content {
+    padding: 20px;
+}
+
+.example-content h4 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: var(--main-color);
+}
+
+.service-action {
+    margin: 30px 0;
+    text-align: center;
+}
+
+/* レスポンシブ対応 */
 @media (min-width: 768px) {
-    .company-info dl {
+    .service-section {
+        padding: 60px 0;
+    }
+
+    .service-image {
+        margin: 30px 0;
+        border-radius: 12px;
+    }
+
+    .service-content {
+        padding: 30px 0;
+    }
+
+    .example-item {
         display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
+        align-items: center;
     }
-    
-    .company-info dt {
-        width: 25%;
-        padding-right: 20px;
+
+    .example-image {
+        width: 40%;
+        height: 250px;
     }
-    
-    .company-info dd {
-        width: 75%;
-        margin-bottom: 0;
+
+    .example-content {
+        width: 60%;
     }
 }
 
