@@ -225,73 +225,192 @@ nav ul li a .ja {
 /* セクション共通 */
 .section {
     padding: 40px 0;
+    margin-bottom: 20px;
 }
 
 .section-inner {
     padding: 0 20px;
     max-width: 100%;
-    margin: 0 auto;
 }
 
 .section-header {
+    margin-bottom: 30px;
     text-align: center;
-    margin-bottom: 40px;
-    padding: 0 20px;
 }
 
-.section-header h2 {
+.section-title {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 15px;
-    line-height: 1.4;
-}
-
-.section-header h2 .en {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 26px;
-}
-
-.section-header h2 .ja {
-    display: block;
-    font-size: 16px;
-    font-weight: 400;
-    opacity: 0.7;
+    color: var(--main-color);
 }
 
 .section-description {
-    text-align: left;
-    padding: 0 20px;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* サービスセクションの共通スタイル */
+.ai-product-section,
+.freelance-section,
+.mvp-section {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 30px 20px;
+}
+
+/* リスト項目のスタイル */
+.target-companies,
+.ai-products,
+.target-freelance,
+.tools-provided,
+.service-features,
+.development-flow {
     margin-bottom: 30px;
 }
 
-.section-description p {
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 20px;
+.target-companies h3,
+.ai-products h3,
+.target-freelance h3,
+.tools-provided h3,
+.service-features h3,
+.development-flow h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
 }
 
-.action-button {
+.target-companies ul,
+.ai-products ul,
+.target-freelance ul,
+.tools-provided ul,
+.service-features ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.target-companies li,
+.ai-products li,
+.target-freelance li,
+.tools-provided li,
+.service-features li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.target-companies li::before,
+.ai-products li::before,
+.target-freelance li::before,
+.tools-provided li::before,
+.service-features li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--main-color);
+}
+
+/* 開発フローのスタイル */
+.development-flow ol {
+    counter-reset: flow-counter;
+    list-style: none;
+    padding-left: 0;
+}
+
+.development-flow li {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.development-flow li::before {
+    content: counter(flow-counter);
+    counter-increment: flow-counter;
+    position: absolute;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* CTAセクションのスタイル */
+.cta-section {
+    background-color: var(--main-color);
+    color: white;
     text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    padding: 40px 20px;
+    margin: 40px 0 0;
 }
 
-.btn-start {
+.cta-content h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.cta-content p {
+    font-size: 16px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.btn-primary {
     display: inline-block;
     padding: 15px 40px;
-    background-color: var(--main-color);
-    color: #fff;
+    background-color: white;
+    color: var(--main-color);
+    text-decoration: none;
     border-radius: 30px;
-    font-weight: 500;
-    text-align: center;
+    font-weight: 600;
     transition: all 0.3s ease;
-    border: 2px solid var(--main-color);
 }
 
-.btn-start:hover {
-    background-color: #fff;
-    color: var(--main-color);
+.btn-primary:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+    .section-inner {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .ai-product-section,
+    .freelance-section,
+    .mvp-section {
+        margin: 30px;
+        padding: 40px 30px;
+    }
+
+    .target-companies li,
+    .ai-products li,
+    .target-freelance li,
+    .tools-provided li,
+    .service-features li,
+    .development-flow li {
+        font-size: 16px;
+    }
 }
 
 /* メインビジュアル */
@@ -732,200 +851,6 @@ footer {
     }
 }
 
-/* CTA セクション */
-.cta-section {
-    padding: 80px 0;
-    background-color: var(--main-color);
-    color: #fff;
-    text-align: center;
-}
-
-.cta-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.cta-content h2 {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    line-height: 1.4;
-}
-
-.cta-content p {
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 30px;
-    opacity: 0.9;
-}
-
-.cta-buttons {
-    margin-top: 40px;
-}
-
-.cta-buttons .btn-start {
-    background-color: #fff;
-    color: var(--main-color);
-    border: 2px solid #fff;
-}
-
-.cta-buttons .btn-start:hover {
-    background-color: transparent;
-    color: #fff;
-}
-
-/* プロダクトページ */
-.product-detail-section {
-    padding: 40px 0;
-    background-color: #fff;
-}
-
-.product-detail-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.product-detail-header h2 {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 5px;
-}
-
-.product-detail-catchphrase {
-    font-size: 16px;
-    color: var(--accent-color);
-    margin-bottom: 15px;
-}
-
-.product-detail-description {
-    margin-bottom: 30px;
-}
-
-.product-detail-description p {
-    margin-bottom: 15px;
-    line-height: 1.8;
-    font-size: 15px;
-}
-
-.product-detail-main {
-    display: flex;
-    flex-direction: column;
-}
-
-.product-detail-image {
-    margin-bottom: 20px;
-}
-
-.product-detail-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.product-detail-text h3 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    margin-top: 20px;
-}
-
-.feature-list, .recommend-list {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin-bottom: 20px;
-}
-
-.feature-list li, .recommend-list li {
-    margin-bottom: 8px;
-    line-height: 1.6;
-}
-
-.product-action {
-    margin-top: 25px;
-    text-align: center;
-}
-
-/* 製品機能タグ */
-.product-features {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-bottom: 15px;
-}
-
-.feature-tag {
-    display: inline-block;
-    background-color: #E9F5F5;
-    color: var(--main-color);
-    font-size: 12px;
-    padding: 4px 10px;
-    border-radius: 20px;
-}
-
-.products-filter {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
-.filter-btn {
-    background-color: transparent;
-    border: 1px solid var(--border-color);
-    border-radius: 30px;
-    padding: 8px 15px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.filter-btn.active {
-    background-color: var(--main-color);
-    color: #fff;
-    border-color: var(--main-color);
-}
-
-.btn-detail {
-    display: inline-block;
-    background-color: transparent;
-    border: 1px solid var(--main-color);
-    color: var(--main-color);
-    padding: 8px 15px;
-    border-radius: 30px;
-    font-size: 14px;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.btn-detail:hover {
-    background-color: var(--main-color);
-    color: #fff;
-}
-
-.free-tag {
-    background-color: #7CD1BD;
-    margin-left: 5px;
-}
-
-@media (min-width: 768px) {
-    .product-detail-main {
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 30px;
-    }
-    
-    .product-detail-image {
-        width: 45%;
-        margin-bottom: 0;
-    }
-    
-    .product-detail-text {
-        width: 55%;
-    }
-}
-
 /* 会社情報ページのスタイル */
 .company-profile-section {
     padding: 2rem 1rem;
@@ -953,143 +878,18 @@ footer {
     font-weight: 500;
 }
 
-/* 経営理念セクション */
-.philosophy-section {
-    background-color: #f8f8f8;
-    padding: 2rem 1rem;
+.company-info-table dd {
+    margin-bottom: 10px;
 }
 
-.philosophy-items {
-    margin-top: 1.5rem;
-}
-
-.philosophy-item {
-    margin-bottom: 2rem;
-}
-
-.philosophy-item h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: #004C4F;
-    font-weight: 500;
-}
-
-.philosophy-item p {
-    font-size: 0.9rem;
-    line-height: 1.7;
-}
-
-/* 代表メッセージ */
-.ceo-section {
-    padding: 2rem 1rem;
-}
-
-.ceo-message {
-    margin-top: 1.5rem;
-}
-
-.ceo-image {
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-.ceo-image img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.ceo-text h3 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    color: #333;
-    font-weight: 500;
-}
-
-.ceo-text p {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    margin-bottom: 1rem;
-}
-
-/* 沿革セクション */
-.history-section {
-    background-color: #f8f8f8;
-    padding: 2rem 1rem;
-}
-
-.history-timeline {
-    margin-top: 1.5rem;
-}
-
-.timeline-item {
-    position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 2rem;
-    border-left: 2px solid #ddd;
-}
-
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
-
-.timeline-date {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #004C4F;
-    margin-bottom: 0.5rem;
-}
-
-.timeline-content h3 {
-    font-size: 1rem;
-    margin-bottom: 0.3rem;
-    color: #333;
-}
-
-.timeline-content p {
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: #666;
-}
-
-/* アクセスセクション */
-.access-section {
-    padding: 2rem 1rem;
-}
-
-.access-map {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.access-map iframe {
-    width: 100%;
-    height: 250px;
-    border: none;
-}
-
-.access-info {
-    font-size: 0.9rem;
-    line-height: 1.6;
-}
-
-.access-address h3,
-.access-transport h3 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    color: #333;
-    font-weight: 500;
-}
-
-.access-address {
-    margin-bottom: 1.5rem;
-}
-
-.access-transport ul {
+.company-info-table dd ul {
     list-style: disc;
-    padding-left: 1.5rem;
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.company-info-table dd ul li {
+    margin-bottom: 5px;
 }
 
 @media (min-width: 768px) {
