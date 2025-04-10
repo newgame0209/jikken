@@ -5,12 +5,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const loading = document.querySelector('.loading');
     
     if (loading) {
-        setTimeout(function() {
-            loading.classList.add('hide');
+        // indexページ以外ではローディングを表示しない
+        const isIndexPage = window.location.pathname.endsWith('index.html') || 
+                           window.location.pathname.endsWith('/') || 
+                           window.location.pathname.endsWith('/mobile/');
+        
+        if (!isIndexPage) {
+            // インデックスページでない場合はローディング非表示
+            loading.style.display = 'none';
+        } else {
+            // インデックスページの場合のみ表示
             setTimeout(function() {
-                loading.style.display = 'none';
-            }, 1000);
-        }, 3000);
+                loading.classList.add('hide');
+                setTimeout(function() {
+                    loading.style.display = 'none';
+                }, 1000);
+            }, 3000);
+        }
     }
 
     // ハンバーガーメニュー

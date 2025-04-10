@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>送信完了 | JIKKEN LLC</title>
     <meta name="description" content="お問い合わせありがとうございます。">
-    <script src="js/device-redirect.js"></script>
-    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,21 +16,26 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 80px 20px;
+            padding: 60px 20px;
         }
         .thanks-content {
             max-width: 600px;
+            padding: 40px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .thanks-title {
             font-size: 24px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             color: var(--main-color);
         }
         .thanks-message {
             font-size: 16px;
             line-height: 1.8;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            color: #333;
         }
         .back-to-home {
             display: inline-block;
@@ -46,6 +49,7 @@
         }
         .back-to-home:hover {
             background-color: #003638;
+            transform: translateY(-2px);
         }
     </style>
 </head>
@@ -54,16 +58,13 @@
         <div class="header-inner">
             <div class="logo">
                 <a href="index.html">
-                    <svg width="150" height="30" viewBox="0 0 150 30">
-                        <text x="0" y="22" font-size="20" fill="black" font-weight="bold">JIKKEN</text>
-                        <text x="80" y="22" font-size="20" fill="black" font-weight="bold">Inc.</text>
-                    </svg>
+                    <img src="images/logo.png" alt="JIKKEN LLC" width="120" height="40">
                 </a>
             </div>
         </div>
     </header>
 
-    <main>
+    <div class="main-content">
         <section class="thanks-section">
             <div class="thanks-content">
                 <h1 class="thanks-title">お問い合わせありがとうございます</h1>
@@ -75,16 +76,14 @@
                 <a href="index.html" class="back-to-home">トップページへ戻る</a>
             </div>
         </section>
-    </main>
+    </div>
 
     <footer>
         <div class="footer-inner">
             <div class="footer-logo">
-                <svg width="120" height="40" viewBox="0 0 120 40">
-                    <text x="0" y="30" font-size="30" font-weight="bold">JIKKEN</text>
-                </svg>
+                <img src="images/logo-white.png" alt="JIKKEN LLC" width="120" height="40">
             </div>
-            <p class="copyright">© 2025 合同会社JIKKEN All Rights Reserved.</p>
+            <p class="copyright">© 2025 JIKKEN LLC All Rights Reserved.</p>
         </div>
     </footer>
 </body>
