@@ -57,63 +57,55 @@
             <div class="section-inner">
                 <div class="section-header">
                     <h2 class="section-title">お問い合わせフォーム</h2>
-                    <p class="section-description">下記フォームに必要事項をご入力の上、送信ボタンを押してください。</p>
                 </div>
                 
-                <form class="contact-form" action="https://formspree.io/f/xjvnqdad" method="POST">
-                    <input type="hidden" name="_next" value="https://jikken.site/mobile/thanks.html">
-                    <input type="hidden" name="_subject" value="JIKKENサイトからのお問い合わせ（モバイル）">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_autoresponse" value="お問い合わせありがとうございます。内容を確認の上、担当者より順次ご連絡させていただきます。">
-                    <div class="form-group">
-                        <label for="name">お名前 <span class="required">*</span></label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="company">会社名・団体名</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">メールアドレス <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">電話番号</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="inquiry_type">お問い合わせ種別 <span class="required">*</span></label>
-                        <select id="inquiry_type" name="inquiry_type" required>
-                            <option value="" disabled selected>選択してください</option>
-                            <option value="service">サービスについて</option>
-                            <option value="product">プロダクトについて</option>
-                            <option value="partnership">業務提携について</option>
-                            <option value="estimate">お見積りのご依頼</option>
-                            <option value="other">その他</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">お問い合わせ内容 <span class="required">*</span></label>
-                        <textarea id="message" name="message" rows="6" required></textarea>
-                    </div>
-                    
-                    <div class="form-group privacy-policy">
-                        <label class="checkbox-container">
+                <div class="section-subtitle">下記フォームに必要事項をご入力の上、送信ボタンを押してください。</div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" name="contact-mobile" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/mobile/thanks.html">
+                        <input type="hidden" name="form-name" value="contact-mobile">
+                        <input type="hidden" name="bot-field">
+                        <div class="form-group">
+                            <label for="name">お名前 <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">会社名・団体名</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">電話番号</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="inquiry_type">お問い合わせ種別 <span class="required">*</span></label>
+                            <select id="inquiry_type" name="inquiry_type" required>
+                                <option value="">選択してください</option>
+                                <option value="service">サービスについて</option>
+                                <option value="product">プロダクトについて</option>
+                                <option value="partnership">業務提携について</option>
+                                <option value="estimate">お見積りのご依頼</option>
+                                <option value="other">その他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">お問い合わせ内容 <span class="required">*</span></label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <div class="form-privacy">
                             <input type="checkbox" id="privacy_agree" name="privacy_agree" required>
-                            <span class="privacy-text">個人情報保護方針に同意する <span class="required">*</span></span>
-                        </label>
-                        <a href="#" class="privacy-link">プライバシーポリシーを読む</a>
-                    </div>
-                    
-                    <div class="form-button">
-                        <button type="submit" class="btn-submit">送信する</button>
-                    </div>
-                </form>
+                            <label for="privacy_agree">個人情報保護方針に同意する <span class="required">*</span></label>
+                            <a href="#" class="privacy-link">プライバシーポリシーを読む</a>
+                        </div>
+                        <div class="form-submit">
+                            <button type="submit" class="btn-submit">送信する</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
 

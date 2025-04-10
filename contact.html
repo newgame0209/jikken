@@ -90,11 +90,9 @@
                 <p class="section-subtitle">下記フォームに必要事項をご入力の上、送信ボタンを押してください。</p>
             </div>
             <div class="contact-form-container">
-                <form class="contact-form" action="https://formspree.io/f/xjvnqdad" method="POST">
-                    <input type="hidden" name="_next" value="https://jikken.site/thanks.html">
-                    <input type="hidden" name="_subject" value="JIKKENサイトからのお問い合わせ">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_autoresponse" value="お問い合わせありがとうございます。内容を確認の上、担当者より順次ご連絡させていただきます。">
+                <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
+                    <input type="hidden" name="form-name" value="contact">
+                    <input type="hidden" name="bot-field">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">お名前 <span class="required">*</span></label>
