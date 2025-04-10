@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
             loading.classList.add('hide');
             setTimeout(function() {
                 loading.style.display = 'none';
-            }, 500);
-        }, 1500);
+            }, 1000);
+        }, 3000);
     }
 
     // ハンバーガーメニュー
