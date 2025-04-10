@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | JIKKEN LLC</title>
+    <meta name="description" content="JIKKENへのお問い合わせはこちらから。AIを活用したプロダクトやサービスについてのご質問、ご相談をお待ちしております。">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/mobile-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .contact-header {
+            background-color: #f8f9ff;
+            padding: 100px 0 40px;
+            text-align: center;
+        }
+        .contact-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .contact-subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .contact-description {
+            max-width: 90%;
+            margin: 0 auto;
+            font-size: 14px;
+            line-height: a.8;
+            padding: 0 15px;
+        }
+        .contact-form-section {
+            padding: 40px 15px;
+        }
+        .contact-form-container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 25px 15px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .form-group textarea {
+            min-height: 120px;
+        }
+        .form-privacy {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        .form-privacy input {
+            margin-right: 8px;
+            margin-top: 4px;
+        }
+        .form-privacy label {
+            font-size: 13px;
+            flex: 1;
+        }
+        .form-privacy a {
+            margin-left: 10px;
+            color: #0066cc;
+            font-size: 13px;
+            text-decoration: underline;
+        }
+        .btn-submit {
+            background-color: #0066cc;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 200px;
+            display: block;
+            margin: 0 auto;
+        }
+        .btn-submit:hover {
+            background-color: #0055aa;
+        }
+        .required {
+            color: #e74c3c;
+        }
+        .contact-info-section {
+            padding: 40px 15px;
+            background-color: #f8f9ff;
+        }
+        .contact-info-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .contact-info-block {
+            display: flex;
+            align-items: flex-start;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+        .contact-info-icon {
+            margin-right: 15px;
+            color: #0066cc;
+        }
+        .contact-info-text h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .contact-info-text p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 8px;
+        }
+        .social-link {
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 14px;
+        }
+        .social-link:hover {
+            color: #004c99;
+        }
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .section-subtitle {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <a href="index.html">
+                    <svg width="120" height="40" viewBox="0 0 120 40">
+                        <text x="0" y="22" font-size="20" fill="black" font-weight="bold">JIKKEN</text>
+                        <text x="80" y="22" font-size="20" fill="black" font-weight="bold">LLC</text>
+                    </svg>
+                </a>
+            </div>
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="about.html">
+                            <span class="nav-en">About</span>
+                            <span class="nav-ja">私たちについて</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="products.html">
+                            <span class="nav-en">AI Product</span>
+                            <span class="nav-ja">プロダクト</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="services.html">
+                            <span class="nav-en">Services</span>
+                            <span class="nav-ja">サービス案内</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="company.html">
+                            <span class="nav-en">Company</span>
+                            <span class="nav-ja">会社情報</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact-new.html" class="active">
+                            <span class="nav-en">Contact</span>
+                            <span class="nav-ja">お問い合わせ</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- メインコンテンツ -->
+    <div class="main-content">
+        <!-- メインタイトル -->
+        <section class="contact-header">
+            <div class="contact-title">Contact</div>
+            <div class="contact-subtitle">お問い合わせ</div>
+            <div class="contact-description">AIを活用したサービスについてのご質問や、お見積りのご依頼など、お気軽にお問い合わせください。</div>
+        </section>
+
+        <!-- お問い合わせフォーム -->
+        <section class="contact-form-section">
+            <div class="section-title">お問い合わせフォーム</div>
+            <div class="section-subtitle">下記フォームに必要事項をご入力の上、送信ボタンを押してください。</div>
+            
+            <div class="contact-form-container">
+                <!-- シンプルなNetlify Form -->
+                <form name="contact-mobile-simple" method="POST" data-netlify="true" action="/mobile/contact-thanks.html">
+                    <input type="hidden" name="form-name" value="contact-mobile-simple">
+                    
+                    <div class="form-group">
+                        <label for="name">お名前 <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">メールアドレス <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">会社名・団体名</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="inquiry_type">お問い合わせ種別 <span class="required">*</span></label>
+                        <select id="inquiry_type" name="inquiry_type" required>
+                            <option value="">選択してください</option>
+                            <option value="サービスについて">サービスについて</option>
+                            <option value="プロダクトについて">プロダクトについて</option>
+                            <option value="業務提携について">業務提携について</option>
+                            <option value="お見積りのご依頼">お見積りのご依頼</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">お問い合わせ内容 <span class="required">*</span></label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <div class="form-privacy">
+                        <input type="checkbox" id="privacy_agree" name="privacy_agree" required>
+                        <label for="privacy_agree">個人情報保護方針に同意する <span class="required">*</span></label>
+                        <a href="#">プライバシーポリシーを読む</a>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">送信する</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- その他のお問い合わせ方法 -->
+        <section class="contact-info-section">
+            <div class="section-title">その他のお問い合わせ方法</div>
+            
+            <div class="contact-info-container">
+                <div class="contact-info-block">
+                    <div class="contact-info-icon">
+                        <svg width="30" height="30" viewBox="0 0 40 40">
+                            <path d="M35 5H5C3.89 5 3 5.89 3 7V33C3 34.11 3.89 35 5 35H35C36.11 35 37 34.11 37 33V7C37 5.89 36.11 5 35 5ZM35 33H5V13H35V33ZM35 9H5V7H35V9ZM20 25C22.21 25 24 23.21 24 21C24 18.79 22.21 17 20 17C17.79 17 16 18.79 16 21C16 23.21 17.79 25 20 25ZM28 31C28 28.34 22.67 27 20 27C17.33 27 12 28.34 12 31V32H28V31Z" fill="#0066cc"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info-text">
+                        <h3>メールでのお問い合わせ</h3>
+                        <p><a href="mailto:support@jikken.site">support@jikken.site</a></p>
+                        <p>営業時間：平日10:00〜18:00</p>
+                    </div>
+                </div>
+                
+                <div class="contact-info-block">
+                    <div class="contact-info-icon">
+                        <svg width="30" height="30" viewBox="0 0 40 40">
+                            <path d="M20 3C12.95 3 7 8.95 7 16C7 25 20 37 20 37C20 37 33 25 33 16C33 8.95 27.05 3 20 3ZM20 21C17.24 21 15 18.76 15 16C15 13.24 17.24 11 20 11C22.76 11 25 13.24 25 16C25 18.76 22.76 21 20 21Z" fill="#0066cc"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info-text">
+                        <h3>所在地</h3>
+                        <p>〒542-0081</p>
+                        <p>大阪府大阪市中央区南船場1丁目10－12ラインビルド南船場1004号</p>
+                    </div>
+                </div>
+                
+                <div class="contact-info-block">
+                    <div class="contact-info-icon">
+                        <svg width="30" height="30" viewBox="0 0 40 40">
+                            <path d="M32 6H8C6.9 6 6 6.9 6 8V32C6 33.1 6.9 34 8 34H32C33.1 34 34 33.1 34 32V8C34 6.9 33.1 6 32 6ZM26 12H23V23C23 24.65 21.65 26 20 26C18.35 26 17 24.65 17 23C17 21.35 18.35 20 20 20C20.35 20 20.69 20.07 21 20.18V12H26V12Z" fill="#0066cc"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info-text">
+                        <h3>SNS</h3>
+                        <div class="social-links">
+                            <a href="https://x.com/AI_mirai_naka" target="_blank" class="social-link">Twitter</a>
+                            <a href="#" target="_blank" class="social-link">LinkedIn</a>
+                            <a href="#" target="_blank" class="social-link">Instagram</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- フッター -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <svg width="100" height="34" viewBox="0 0 120 40">
+                    <text x="0" y="30" font-size="24" fill="white" font-weight="bold">JIKKEN</text>
+                    <text x="85" y="30" font-size="16" fill="white" font-weight="bold">LLC</text>
+                </svg>
+            </div>
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="products.html">AI Product</a></li>
+                    <li><a href="services.html">Service</a></li>
+                    <li><a href="company.html">Company</a></li>
+                    <li><a href="contact-new.html">Contact</a></li>
+                </ul>
+            </nav>
+            <p class="copyright">© 2025 JIKKEN LLC All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- オーバーレイ -->
+    <div class="overlay"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 
